@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Role } from "../../data/gameData";
 
 interface CharacterCardProps {
@@ -6,6 +7,13 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ item, factionColor }: CharacterCardProps) {
+  const [imageStatus, setImageStatus] = useState<"loading" | "loaded" | "error">("loading");
+
+  const handleImageError = () => {
+    console.error(`Unable to load character image: ${item.image}`);
+    setImageStatus("error");
+  };
+
   return (
     <div
       className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden"
@@ -31,16 +39,36 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
       
       {/* Image container with hover effect */}
       <div className="relative w-full aspect-square rounded-xl mb-4 overflow-hidden">
-        {item.image ? (
+        {item.image && imageStatus !== "error" ? (
           <>
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setImageStatus("loaded")}
+              onError={handleImageError}
+              className={`w-full h-full object-cover transition-[opacity,transform] duration-500 ease-out group-hover:scale-110 ${
+                imageStatus === "loaded" ? "opacity-100" : "opacity-0"
+              }`}
               style={{
                 border: `1px solid ${factionColor}40`,
               }}
             />
+            {imageStatus === "loading" && (
+              <div
+                className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-xs text-[#EAE2D2]/70"
+                style={{ background: `radial-gradient(circle at 50% 30%, ${factionColor}2E, #0A0710)` }}
+                role="status"
+                aria-label={`جارٍ تحميل صورة ${item.name}`}
+              >
+                <span
+                  className="h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"
+                  style={{ borderColor: `${factionColor} transparent ${factionColor} ${factionColor}` }}
+                />
+                <span style={{ fontFamily: "'Tajawal', sans-serif" }}>جارٍ تحميل الصورة</span>
+              </div>
+            )}
             {/* Gradient overlay on hover */}
             <div 
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

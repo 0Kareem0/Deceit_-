@@ -74,11 +74,13 @@ html {
   100% { transform: scale(3); opacity: 0; }
 }
 
-@media (max-width: 640px), (prefers-reduced-motion: reduce) {
+@media (max-width: 640px) {
   .starfield-star:nth-child(n + 25) {
     display: none;
   }
+}
 
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {

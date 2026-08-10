@@ -15,7 +15,7 @@ export function Hero() {
       />
 
       <div className="relative">
-        <Eyebrow>لعبة خداع اجتماعي جماعية</Eyebrow>
+        <Eyebrow>لعبة الخداع والتضليل</Eyebrow>
         <h1
           className="mt-5 text-[20vw] sm:text-[10rem] leading-none font-bold bg-gradient-to-b from-[#F1E4C3] via-[#C6A369] to-[#6B1B38] bg-clip-text text-transparent drop-shadow-[0_0_60px_rgba(198,163,105,0.25)] transition-transform duration-700 hover:scale-105"
           style={{ fontFamily: "'Scheherazade New', serif", animation: "floaty 6s ease-in-out infinite" }}
@@ -47,16 +47,20 @@ export function Hero() {
         </p>
       </div>
 
-      <div 
-        className="mt-14 flex items-center gap-8 text-[#8C82A0] text-sm relative transition-all duration-300 hover:text-[#EAE2D2]/90 hover:scale-105" 
-        style={{ fontFamily: "'Cairo', sans-serif" }}
-      >
-        <span className="transition-transform duration-300 hover:scale-110">👑 فريقان متصارعان</span>
-        <span className="w-px h-4 bg-[#8C82A0]/25" />
-        <span className="transition-transform duration-300 hover:scale-110">🌑 ٨ قدرات للظلال</span>
-        <span className="w-px h-4 bg-[#8C82A0]/25" />
-        <span className="transition-transform duration-300 hover:scale-110">🌙 دورة ليل ونهار</span>
-      </div>
+  <div
+  className="mt-14 flex items-center gap-8 text-[#8C82A0] text-sm relative transition-all duration-300 hover:text-[#EAE2D2]/90 hover:scale-105"
+  style={{ fontFamily: "'Cairo', sans-serif" }}
+>
+  <span  className="transition-transform duration-300 hover:scale-110" >⚔️ فريقان متصارعان</span>
+
+  <span className="w-px h-4 bg-[#8C82A0]/25" />
+
+  <span  className="transition-transform duration-300 hover:scale-110" >🎭 شخصيات محايدة</span>
+
+  <span className="w-px h-4 bg-[#8C82A0]/25" />
+
+  <span  className="transition-transform duration-300 hover:scale-110" >🌙 ليل ونهار</span>
+</div>
 
       <ChevronDown className="mt-16 w-6 h-6 text-[#8C82A0] animate-bounce relative transition-transform duration-300 hover:scale-110 hover:text-[#C6A369]" />
     </section>

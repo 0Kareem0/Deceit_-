@@ -1,4 +1,3 @@
-import { useScrollProgress } from "./hooks/useScrollProgress";
 import {
   BackgroundEffects,
   Header,
@@ -12,15 +11,14 @@ import {
 } from "./components";
 
 export default function App() {
-  const progress = useScrollProgress();
-
   return (
     <div
+      id="top"
       dir="rtl"
       lang="ar"
       className="relative min-h-screen bg-[#050308] text-[#EAE2D2] overflow-x-hidden selection:bg-[#C6A369]/30"
     >
-      <BackgroundEffects progress={progress} />
+      <BackgroundEffects />
       <Header />
       <Hero />
       <About />

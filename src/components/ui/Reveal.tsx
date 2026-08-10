@@ -14,7 +14,7 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
       ref={ref}
       style={{ 
         transitionDelay: visible ? `${delay}ms` : "0ms",
-        transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: "opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
       className={`${
         visible 

@@ -33,8 +33,10 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span
-              className="text-2xl font-bold bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent transition-all duration-300 group-hover:from-[#F1E4C3] group-hover:to-[#C6A369]"
-              style={{ fontFamily: "'Scheherazade New', serif" }}
+              className="text-2xl font-bold bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent transition-all duration-300 group-hover:from-[#F1E4C3] group-hover:to-[#C6A369] cursor-pointer"
+              style={{ 
+                fontFamily: "'Scheherazade New', serif", 
+              }}
             >
               ديسيت
             </span>
@@ -71,7 +73,7 @@ export function Header() {
 
         {/* Download Button */}
         <a
-          href="#download"
+          href="#download" 
           className="relative group px-6 py-3 rounded-xl text-sm font-bold text-[#050308] overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)]"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >

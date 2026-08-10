@@ -18,7 +18,7 @@ export function Hero() {
         <Eyebrow>لعبة خداع اجتماعي جماعية</Eyebrow>
         <h1
           className="mt-5 text-[20vw] sm:text-[10rem] leading-none font-bold bg-gradient-to-b from-[#F1E4C3] via-[#C6A369] to-[#6B1B38] bg-clip-text text-transparent drop-shadow-[0_0_60px_rgba(198,163,105,0.25)] transition-transform duration-700 hover:scale-105"
-          style={{ fontFamily: "'Aref Ruqaa', serif", animation: "floaty 6s ease-in-out infinite" }}
+          style={{ fontFamily: "'Scheherazade New', serif", animation: "floaty 6s ease-in-out infinite" }}
         >
           ديسيت
         </h1>

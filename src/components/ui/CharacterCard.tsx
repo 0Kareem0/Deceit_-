@@ -40,7 +40,7 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
       {/* Image container with hover effect */}
       <div className="relative w-full aspect-square rounded-xl mb-4 overflow-hidden">
         {item.image && imageStatus !== "error" ? (
-          <>
+          <>  
             <img
               src={item.image}
               alt={item.name}

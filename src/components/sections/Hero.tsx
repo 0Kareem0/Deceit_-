@@ -28,14 +28,13 @@ export function Hero() {
         className="mt-4 text-lg sm:text-2xl text-[#EAE2D2]/90 max-w-2xl relative transition-all duration-300 hover:text-[#EAE2D2] hover:scale-105" 
         style={{ fontFamily: "'Cairo', sans-serif" }}
       >
-        النهار للحقيقة، والليل للظلال — فمن تصدّق، ومن يخدعك؟
+        لعبة خداع اجتماعي مع أدوار خاصة وقدرات فريدة
       </p>
       <p 
         className="mt-4 max-w-xl text-[#8C82A0] leading-relaxed relative transition-all duration-300 hover:text-[#EAE2D2]/80 hover:scale-105" 
         style={{ fontFamily: "'Tajawal', sans-serif" }}
       >
-        في مملكة يتربّص بها الظلال، يجتمع اللاعبون كل ليلة تحت غطاء الخداع. بعضهم يحمي، وبعضهم يقتل،
-        وكلّهم يكذب. هل تستطيع كشف الظلال قبل أن يسيطروا على العرش؟
+        أنت جزء من فريقين: المملكة (الخير) أو الظلال (الشر). كل ليلة تستخدم قدرتك سرًا، وكل نهار تناقش وتصوّت للكشف عن الخونة. هل ستكشف الظلال قبل أن يسيطروا على المملكة؟
       </p>
 
       <div id="download" className="mt-10 scroll-mt-24 relative">

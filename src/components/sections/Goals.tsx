@@ -2,9 +2,9 @@ import { Reveal, Eyebrow } from "../ui";
 
 export function Goals() {
   const goals = [
-    { icon: "👑", title: "المملكة", color: "#C6A369", desc: "القضاء على كل الظلال والصمود أمام هجماتهم الليلية." },
-    { icon: "🌑", title: "الظلال", color: "#9C3357", desc: "التخلص من أبناء المملكة حتى تمتلك السيطرة الكاملة على القرار." },
-    { icon: "❔", title: "المحايدون", color: "#8C82A0", desc: "لكل محايد غايته الخاصة، منفصلة عن صراع المملكة والظلال." },
+    { icon: "👑", title: "المملكة", color: "#C6A369", desc: "تفوزون عندما تطردون جميع الظلال من اللعبة. استخدموا قدراتكم للتحقيق والحماية، وتعاونوا في النهار لكشف الخونة." },
+    { icon: "🌑", title: "الظلال", color: "#9C3357", desc: "تفوزون عندما يصبح عدد الظلال مساويًا لعدد المملكة. أخفوا هويتكم، استخدموا قدراتكم للتخريب والقتل، وخدعوا المملكة في التصويت." },
+    { icon: "❔", title: "المحايدون", color: "#8C82A0", desc: "لكل محايد هدفه الخاص لا علاقة له بالصراع الرئيسي. قد يساعدون فريقًا معينًا أو يعملون وحدهم لتحقيق شرط فوزهم الخاص." },
   ];
 
   return (
@@ -12,8 +12,11 @@ export function Goals() {
       <Reveal className="text-center mb-14">
         <Eyebrow>من يفوز؟</Eyebrow>
         <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
-          كل فريق له نصره الخاص
+          تعرّف على شروط الفوز لكل فريق
         </h2>
+        <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+          لكل فريق طريقه الخاص للفوز. افهم شروط فوزك واستراتيجية فريقك للنجاح.
+        </p>
       </Reveal>
 
       <div className="grid sm:grid-cols-3 gap-6">

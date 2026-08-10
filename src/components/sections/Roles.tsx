@@ -20,7 +20,7 @@ export function Roles() {
           الشخصيات
         </h2>
         <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
-          صور الشخصيات في طريقها — هذا العرض جاهز لاستقبالها فور توفرها.
+          كل شخصية لها دور وقدرة خاصة. تعرّف على الأدوار لفهم كيف تساعد فريقك.
         </p>
       </Reveal>
 

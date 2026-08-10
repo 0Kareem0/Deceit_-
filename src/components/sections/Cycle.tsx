@@ -9,6 +9,9 @@ export function Cycle() {
         <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
           كل دورة تبدأ بالظلام، وتنتهي بالحقيقة
         </h2>
+        <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+          اللعبة تدور في دورات متكررة: ليل تُستخدم فيه القدرات سرًا، ثم نهار للنقاش والتصويت.
+        </p>
       </Reveal>
 
       <div className="grid md:grid-cols-2 gap-6">

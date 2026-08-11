@@ -39,7 +39,7 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
       />
       
       {/* Image container with hover effect */}
-      <div className="relative w-full aspect-square rounded-xl mb-4 overflow-hidden">
+      <div className="relative w-full aspect-[3/4] rounded-xl mb-4 overflow-hidden">
         {item.image && imageStatus !== "error" ? (
           <>
             <img
@@ -49,7 +49,7 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
               decoding="async"
               onLoad={() => setImageStatus("loaded")}
               onError={handleImageError}
-              className={`w-full h-full object-cover transition-[opacity,transform] duration-500 ease-out group-hover:scale-110 ${
+              className={`w-full h-full object-cover origin-top transition-[opacity,transform] duration-500 ease-out group-hover:scale-110 ${
                 imageStatus === "loaded" ? "opacity-100" : "opacity-0"
               }`}
               style={{

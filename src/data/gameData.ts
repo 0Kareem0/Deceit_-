@@ -1,5 +1,6 @@
 export const ANDROID_LINK =
   "https://drive.google.com/file/d/1_eCu4wxU6cSfPPScbB_Kr7A6izxLCBRn/view?usp=sharing";
+export const ANDROID_DIRECT_LINK = "/ديسيت.apk";
 export const IOS_LINK: string | null = null; // ضع رابط الـ App Store هنا عندما يتوفر
 
 export type Role = { icon: string; name: string; desc: string; image?: string };

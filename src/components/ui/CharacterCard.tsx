@@ -16,10 +16,11 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
 
   return (
     <div
-      className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden"
+      className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden flex flex-col h-full"
       style={{ 
         borderColor: factionColor + "2A",
         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        minHeight: "320px",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
@@ -97,7 +98,7 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
         {item.name}
       </h4>
       <p 
-        className="text-sm text-[#8C82A0] leading-relaxed transition-colors duration-300 group-hover:text-[#EAE2D2]/80"
+        className="text-sm text-[#8C82A0] leading-relaxed transition-colors duration-300 group-hover:text-[#EAE2D2]/80 flex-grow"
         style={{ fontFamily: "'Tajawal', sans-serif" }}
       >
         {item.desc}

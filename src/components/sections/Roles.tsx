@@ -41,9 +41,9 @@ export function Roles() {
         ))}
       </Reveal>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 items-stretch">
         {filtered.map((c, i) => (
-          <Reveal key={c.name + i} delay={(i % 4) * 80}>
+          <Reveal key={c.name + i} delay={(i % 4) * 80} className="h-full">
             <CharacterCard item={c} factionColor={c.color} />
           </Reveal>
         ))}

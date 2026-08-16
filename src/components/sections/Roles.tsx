@@ -1,31 +1,33 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Reveal, Eyebrow, CharacterCard } from "../ui";
 import { KINGDOM_ROLES, SHADOW_ROLES, NEUTRAL_ROLES, Character } from "../../data/gameData";
 
 export function Roles() {
-  const [filter, setFilter] = useState("الكل");
+  const { t } = useTranslation();
+  const [filter, setFilter] = useState("all");
 
   const allCharacters: Character[] = [
     ...KINGDOM_ROLES.map((r) => ({ ...r, faction: "المملكة", color: "#C6A369" })),
     ...SHADOW_ROLES.map((r) => ({ ...r, faction: "الظلال", color: "#9C3357" })),
     ...NEUTRAL_ROLES.map((r) => ({ ...r, faction: "محايدون", color: "#8C82A0" })),
   ];
-  const filtered = filter === "الكل" ? allCharacters : allCharacters.filter((c) => c.faction === filter);
+  const filtered = filter === "all" ? allCharacters : allCharacters.filter((c) => c.faction === (filter === "kingdom" ? "المملكة" : filter === "shadows" ? "الظلال" : "محايدون"));
 
   return (
     <section id="roles" className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-20 scroll-mt-16">
       <Reveal className="text-center mb-10">
-        <Eyebrow>تعرّف عليهم</Eyebrow>
+        <Eyebrow>{t('roles.subtitle')}</Eyebrow>
         <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
-          الشخصيات
+          {t('roles.title')}
         </h2>
         <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
-          كل شخصية لها دور وقدرة خاصة. تعرّف على الأدوار لفهم كيف تساعد فريقك.
+          {t('roles.description')}
         </p>
       </Reveal>
 
       <Reveal className="flex flex-wrap justify-center gap-3 mb-10">
-        {["الكل", "المملكة", "الظلال", "محايدون"].map((f) => (
+        {["all", "kingdom", "shadows", "neutral"].map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
@@ -36,7 +38,7 @@ export function Roles() {
             }`}
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            {f}
+            {t(`roles.filter.${f}`)}
           </button>
         ))}
       </Reveal>

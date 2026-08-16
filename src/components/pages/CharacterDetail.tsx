@@ -4,10 +4,12 @@ import { ArrowRight, Shield, Zap, Info } from "lucide-react";
 import { DETAILED_ROLES } from "../../data/gameData";
 import { SEO } from "../ui/SEO";
 import { Header } from "../sections/Header";
+import { useTranslation } from "react-i18next";
 
 export function CharacterDetail() {
   const { characterName } = useParams<{ characterName: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [imageStatus, setImageStatus] = useState<"loading" | "loaded" | "error">("loading");
 
   const character = DETAILED_ROLES[decodeURIComponent(characterName || "")];
@@ -27,20 +29,34 @@ export function CharacterDetail() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Get faction-specific background
+  const getFactionBackground = (team: string) => {
+    switch (team) {
+      case "المملكة":
+        return "radial-gradient(circle at top right, rgba(198, 163, 105, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(198, 163, 105, 0.05), transparent 50%)";
+      case "الظلال":
+        return "radial-gradient(circle at top right, rgba(156, 51, 87, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(156, 51, 87, 0.05), transparent 50%)";
+      case "محايدون":
+        return "radial-gradient(circle at top right, rgba(140, 130, 160, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(140, 130, 160, 0.05), transparent 50%)";
+      default:
+        return "none";
+    }
+  };
+
   if (!character) {
     return (
       <div className="min-h-screen flex items-center justify-center text-[#EAE2D2]">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Cairo', sans-serif" }}>
-            الشخصية غير موجودة
-          </h1>
-          <Link 
-            to="/#roles" 
-            className="text-[#C6A369] hover:text-[#EAD6A8] transition-colors"
-            style={{ fontFamily: "'Cairo', sans-serif" }}
-          >
-            العودة إلى الشخصيات
-          </Link>
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Cairo', sans-serif" }}>
+              {t('character.characterNotFound')}
+            </h1>
+            <Link 
+              to="/#roles" 
+              className="text-[#C6A369] hover:text-[#EAD6A8] transition-colors"
+              style={{ fontFamily: "'Cairo', sans-serif" }}
+            >
+              {t('common.backToCharacters')}
+            </Link>
         </div>
       </div>
     );
@@ -58,16 +74,19 @@ export function CharacterDetail() {
     <>
       <SEO characterName={character.name} />
       <Header />
-      <div className="min-h-screen bg-[#050308] text-[#EAE2D2] pt-24 pb-16 px-5">
+      <div 
+        className="min-h-screen bg-[#050308] text-[#EAE2D2] pt-24 pb-16 px-5"
+        style={{ background: getFactionBackground(character.team) }}
+      >
         <div className="max-w-4xl mx-auto">
         {/* Back Button */}
-        <button 
+        <button
           onClick={handleBack}
           className="inline-flex items-center gap-2 text-[#8C82A0] hover:text-[#C6A369] transition-colors mb-8 bg-transparent border-none cursor-pointer"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           <ArrowRight className="w-5 h-5 rotate-180" />
-          العودة إلى الشخصيات
+          {t('common.backToCharacters')}
         </button>
 
         {/* Character Header */}
@@ -81,16 +100,16 @@ export function CharacterDetail() {
               {character.name}
             </h1>
           </div>
-          <div 
+          <div
             className="inline-block px-4 py-2 rounded-full text-sm font-bold"
-            style={{ 
+            style={{
               fontFamily: "'Cairo', sans-serif",
               backgroundColor: factionColor + "20",
               color: factionColor,
               border: `1px solid ${factionColor}40`
             }}
           >
-            {character.team}
+            {t(character.team === 'المملكة' ? 'kingdom' : character.team === 'الظلال' ? 'shadows' : 'neutral')}
           </div>
         </div>
 
@@ -120,7 +139,7 @@ export function CharacterDetail() {
                     className="h-12 w-12 animate-spin rounded-full border-2 border-t-transparent"
                     style={{ borderColor: `${factionColor} transparent ${factionColor} ${factionColor}` }}
                   />
-                  <span style={{ fontFamily: "'Tajawal', sans-serif" }}>جارٍ تحميل الصورة</span>
+                  <span style={{ fontFamily: "'Tajawal', sans-serif" }}>{t('character.loadingImage')}</span>
                 </div>
               )}
             </>
@@ -154,23 +173,23 @@ export function CharacterDetail() {
         </div>
 
         {/* Ability Section */}
-        <div 
+        <div
           className="mb-8 p-6 rounded-xl border"
-          style={{ 
+          style={{
             borderColor: factionColor + "2A",
             background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
           }}
         >
           <div className="flex items-center gap-3 mb-4">
             <Zap className="w-6 h-6" style={{ color: factionColor }} />
-            <h2 
+            <h2
               className="text-2xl font-bold"
               style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
             >
-              القدرة
+              {t('character.ability')}
             </h2>
           </div>
-          <p 
+          <p
             className="text-lg leading-relaxed"
             style={{ fontFamily: "'Tajawal', sans-serif" }}
           >
@@ -180,23 +199,23 @@ export function CharacterDetail() {
 
         {/* Cooldown Section */}
         {character.cooldown && (
-          <div 
+          <div
             className="mb-8 p-6 rounded-xl border"
-            style={{ 
+            style={{
               borderColor: factionColor + "2A",
               background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
             }}
           >
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6" style={{ color: factionColor }} />
-              <h2 
+              <h2
                 className="text-2xl font-bold"
                 style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
               >
-                فترة الانتظار
+                {t('character.cooldown')}
               </h2>
             </div>
-            <p 
+            <p
               className="text-lg leading-relaxed"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
@@ -206,30 +225,30 @@ export function CharacterDetail() {
         )}
 
         {/* Constraints Section */}
-        <div 
+        <div
           className="p-6 rounded-xl border"
-          style={{ 
+          style={{
             borderColor: factionColor + "2A",
             background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
           }}
         >
           <div className="flex items-center gap-3 mb-4">
             <Info className="w-6 h-6" style={{ color: factionColor }} />
-            <h2 
+            <h2
               className="text-2xl font-bold"
               style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
             >
-              القيود والتفاصيل
+              {t('character.constraints')}
             </h2>
           </div>
           <ul className="space-y-3">
             {character.constraints.map((constraint, index) => (
-              <li 
+              <li
                 key={index}
                 className="flex items-start gap-3"
                 style={{ fontFamily: "'Tajawal', sans-serif" }}
               >
-                <span 
+                <span
                   className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                   style={{ backgroundColor: factionColor }}
                 />

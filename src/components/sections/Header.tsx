@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Crown, Eye, Moon, Sun, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Crown, Eye, Moon, Sun, ArrowRight, Globe } from "lucide-react";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const isCharacterPage = location.pathname.startsWith('/character/');
 
   const handleBack = () => {
@@ -16,6 +18,11 @@ export function Header() {
         rolesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ar' ? 'en' : 'ar';
+    i18n.changeLanguage(newLang);
   };
 
   useEffect(() => {
@@ -53,13 +60,13 @@ export function Header() {
                 fontFamily: "'Scheherazade New', serif", 
               }}
             >
-              ديسيت
+              {t('nav.deceit')}
             </Link>
             <span 
               className="text-xs text-[#8C82A0] transition-colors duration-300 group-hover:text-[#C6A369]"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
-              لعبة الخداع والتضليل
+              {t('nav.gameOfDeception')}
             </span>
           </div>
         </div>
@@ -68,10 +75,10 @@ export function Header() {
         {!isCharacterPage && (
           <nav className="hidden md:flex items-center gap-1" style={{ fontFamily: "'Cairo', sans-serif" }}>
             {[
-              { href: "#about", label: "اللعبة", icon: <Eye className="w-4 h-4" /> },
-              { href: "#cycle", label: "الليل والنهار", icon: <Moon className="w-4 h-4" /> },
-              { href: "#roles", label: "الشخصيات", icon: <Crown className="w-4 h-4" /> },
-              { href: "#goals", label: "الأهداف", icon: <Sun className="w-4 h-4" /> },
+              { href: "#about", label: t('nav.game'), icon: <Eye className="w-4 h-4" /> },
+              { href: "#cycle", label: t('nav.dayNight'), icon: <Moon className="w-4 h-4" /> },
+              { href: "#roles", label: t('nav.characters'), icon: <Crown className="w-4 h-4" /> },
+              { href: "#goals", label: t('nav.goals'), icon: <Sun className="w-4 h-4" /> },
             ].map((item) => (
               <a
                 key={item.href}
@@ -91,14 +98,14 @@ export function Header() {
         {/* Download Button */}
         {!isCharacterPage && (
           <a
-            href="#download" 
+            href="#download"
             className="relative group px-6 py-3 rounded-xl text-sm font-bold text-[#050308] overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)]"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
             <div className="absolute inset-0 bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914]" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <span className="relative flex items-center gap-2">
-              <span>حمّل الآن</span>
+              <span>{t('common.downloadNow')}</span>
               <Crown className="w-4 h-4" />
             </span>
           </a>
@@ -114,10 +121,23 @@ export function Header() {
             <div className="absolute inset-0 bg-gradient-to-l from-[#C6A369]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative flex items-center gap-2">
               <ArrowRight className="w-4 h-4 rotate-180" />
-              <span>العودة</span>
+              <span>{t('common.back')}</span>
             </span>
           </button>
         )}
+
+        {/* Language Toggle */}
+        <button
+          onClick={toggleLanguage}
+          className="relative group px-4 py-3 rounded-xl text-sm font-bold text-[#EAE2D2] border border-[#C6A369]/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)] hover:border-[#C6A369]/60 bg-transparent cursor-pointer"
+          style={{ fontFamily: "'Cairo', sans-serif" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-l from-[#C6A369]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <span className="relative flex items-center gap-2">
+            <Globe className="w-4 h-4" />
+            <span>{i18n.language === 'ar' ? 'EN' : 'AR'}</span>
+          </span>
+        </button>
       </div>
 
       {/* Decorative line */}

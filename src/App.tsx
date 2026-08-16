@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import {
   BackgroundEffects,
   Header,
@@ -17,6 +18,7 @@ import { CharacterDetail } from "./components/pages/CharacterDetail";
 
 export default function App() {
   const location = useLocation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     // Handle hash scrolling when navigating to home page with hash
@@ -30,11 +32,16 @@ export default function App() {
     }
   }, [location]);
 
+  // Update HTML lang and dir based on current language
+  useEffect(() => {
+    const isArabic = i18n.language === 'ar';
+    document.documentElement.lang = isArabic ? 'ar' : 'en';
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+  }, [i18n.language]);
+
   return (
     <div
       id="top"
-      dir="rtl"
-      lang="ar"
       className="relative min-h-screen bg-[#050308] text-[#EAE2D2] overflow-x-hidden selection:bg-[#C6A369]/30"
     >
       <Analytics />

@@ -1,24 +1,25 @@
-
 import { Instagram, Facebook, Music2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <>
       {/* Final CTA */}
       <section className="text-center py-20 px-5">
-        <h2
-          className="text-3xl sm:text-5xl font-extrabold mb-4"
-          style={{ fontFamily: "'Cairo', sans-serif" }}
-        >
-          العرش ينتظر… فمن يحكمه؟
-        </h2>
+          <h2
+            className="text-3xl sm:text-5xl font-extrabold mb-4"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
+          >
+            {t('footer.cta.title')}
+          </h2>
 
-        <p
-          className="text-[#8C82A0] max-w-xl mx-auto"
-          style={{ fontFamily: "'Tajawal', sans-serif" }}
-        >
-          انضم إلى المملكة أو تسلّل بين الظلال — التحميل متاح الآن.
-        </p>
+          <p
+            className="text-[#8C82A0] max-w-xl mx-auto"
+            style={{ fontFamily: "'Tajawal', sans-serif" }}
+          >
+            {t('footer.cta.desc')}
+          </p>
       </section>
 
       {/* Footer */}
@@ -31,14 +32,14 @@ export function Footer() {
               className="text-3xl font-bold text-white mb-2"
               style={{ fontFamily: "'Aref Ruqaa', serif" }}
             >
-              ديسيت
+              {t('nav.deceit')}
             </h3>
 
             <p
               className="text-sm text-[#8C82A0] max-w-md"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
-              لعبة الخداع والشك… لا تثق بأحد.
+              {t('footer.tagline')}
             </p>
 
             {/* Social Icons */}
@@ -90,14 +91,14 @@ export function Footer() {
               className="text-xs text-[#6F687D]"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
-              © 2026 Deceit. جميع الحقوق محفوظة.
+              © 2026 Deceit. {t('footer.rights')}
             </p>
 
             <p
               className="text-xs text-[#6F687D]"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
-              Made with ♠ by{" "}
+              Made {t('footer.madeBy')} {" "}
               <span className="text-[#A99BFF] font-medium">
                 Kareem & Eslam
               </span>

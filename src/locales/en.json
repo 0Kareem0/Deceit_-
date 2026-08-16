@@ -1,0 +1,127 @@
+{
+  "common": {
+    "download": "Download",
+    "downloadNow": "Download Now",
+    "comingSoon": "Coming Soon",
+    "iOS": "iOS",
+    "android": "Android",
+    "directDownload": "Direct Download",
+    "googleDrive": "Google Drive",
+    "back": "Back",
+    "backToCharacters": "Back to Characters"
+  },
+  "nav": {
+    "game": "The Game",
+    "dayNight": "Day & Night",
+    "characters": "Characters",
+    "goals": "Goals",
+    "deceit": "Deceit",
+    "gameOfDeception": "Game of Deception"
+  },
+  "hero": {
+    "title": "Deceit Online",
+    "subtitle": "The Ultimate Game of Deception and Strategy",
+    "description": "A multiplayer Arabic game based on hidden roles, deception, alliances, and special abilities. Can you figure out who to trust?",
+    "downloadNote": "Download currently available on Android — iOS version coming soon",
+    "features": {
+      "hiddenRoles": "Hidden Roles",
+      "strategicGameplay": "Strategic Gameplay",
+      "socialDeduction": "Social Deduction"
+    }
+  },
+  "about": {
+    "title": "About the Game",
+    "subtitle": "Get to Know Us",
+    "description": "Deceit Online is a multiplayer Arabic game based on hidden roles, deception, alliances, and special abilities. The game is designed for groups of friends who enjoy strategy and social deduction games.",
+    "howToPlay": "How to Play Deceit?",
+    "learnBasics": "Learn the Basics in 3 Steps",
+    "gameDescription": "Deceit is a multiplayer social deception game. Each player gets a secret role and special ability, then tries to read others' intentions and make the right decisions before one team wins the battle.",
+    "step1": {
+      "title": "Get Your Secret Role",
+      "description": "At the start of the game, you get one secret role: either from the Kingdom (good) or from the Shadows (evil). Each role has its own special ability, like protection, killing, investigation, or sabotage."
+    },
+    "step2": {
+      "title": "Use Your Ability at Night",
+      "description": "Every night, your role uses its ability secretly: Shadows attack, while the Kingdom protects and investigates. No one knows what you did at night, and all events are revealed during the day."
+    },
+    "step3": {
+      "title": "Discuss and Vote During the Day",
+      "description": "During the day, discuss with players what happened, gather evidence, and spot contradictions. Then vote to kick out the player you think is from the Shadows. Beware: Shadows lie to hide their identity!"
+    },
+    "tip": {
+      "title": "💡 Tips for Beginners",
+      "description": "The key to winning isn't just knowing the roles, but watching who talks too much, who avoids answering, and who defends certain players. Be smart in choosing who to trust!"
+    }
+  },
+  "cycle": {
+    "title": "Day & Night Cycle",
+    "subtitle": "The Cycle of Deception",
+    "description": "The game revolves in repeating cycles: night where abilities are used secretly, then day for discussion and voting.",
+    "night": {
+      "title": "Night",
+      "point1": "Each character uses their ability in turn.",
+      "point2": "Shadows secretly agree on the night's target.",
+      "point3": "Some abilities protect, some deceive, some kill."
+    },
+    "day": {
+      "title": "Day",
+      "point1": "Players discuss what happened during the night.",
+      "point2": "Accusations intersect with evidence and suspicions.",
+      "point3": "Group voting decides who gets kicked out of the game."
+    },
+    "quote": "The game is not measured by knowing the roles only, but by understanding what happened in the darkness... and why it happened."
+  },
+  "roles": {
+    "title": "Characters",
+    "subtitle": "Meet the Players",
+    "description": "Each character has a unique role and special ability. Learn about the roles to understand how they can help their team.",
+    "filter": {
+      "all": "All",
+      "kingdom": "Kingdom",
+      "shadows": "Shadows",
+      "neutral": "Neutral"
+    }
+  },
+  "interactions": {
+    "title": "Ability Interactions",
+    "subtitle": "How Powers Collide",
+    "description": "Understanding how different abilities interact is crucial for success. Learn which powers counter others and how to use them strategically."
+  },
+  "goals": {
+    "title": "Winning Conditions",
+    "subtitle": "Path to Victory",
+    "description": "Each team has its own path to victory. Understand your team's win condition to succeed.",
+    "kingdom": {
+      "title": "Kingdom Victory",
+      "description": "Eliminate all Shadow members while keeping the King alive until the end of the match."
+    },
+    "shadows": {
+      "title": "Shadows Victory", 
+      "description": "Eliminate the King (and Crown Prince if applicable) to claim victory over the Kingdom."
+    },
+    "neutral": {
+      "title": "Neutral Victory",
+      "description": "Each neutral character has their own unique winning condition, independent of the main teams."
+    }
+  },
+  "character": {
+    "team": "Team",
+    "ability": "Ability",
+    "constraints": "Constraints & Details",
+    "cooldown": "Cooldown",
+    "characterNotFound": "Character Not Found",
+    "loadingImage": "Loading image"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeBy": "Made with",
+    "cta": {
+      "title": "The Throne Awaits… Who Will Rule?",
+      "desc": "Join the Kingdom or scheme among the Shadows — Download now."
+    },
+    "tagline": "A game of lies and suspicion… trust no one."
+  },
+  "kingdom": "Kingdom",
+  "shadows": "Shadows", 
+  "neutral": "Neutral"
+}

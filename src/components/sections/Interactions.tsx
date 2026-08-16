@@ -1,16 +1,18 @@
 import { Reveal, Eyebrow } from "../ui";
 import { INTERACTIONS } from "../../data/gameData";
+import { useTranslation } from "react-i18next";
 
 export function Interactions() {
+  const { t } = useTranslation();
   return (
     <section className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-20">
       <Reveal className="text-center mb-14">
-        <Eyebrow>الجزء المهم</Eyebrow>
+        <Eyebrow>{t('interactions.subtitle')}</Eyebrow>
         <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
-          القدرات تتقاطع… والنتيجة تُروى
+          {t('interactions.title')}
         </h2>
         <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
-          كل قدرة قد تصطدم بقدرة أخرى، فتتغيّر نتيجة الليلة كلها بناءً على ترتيب الأحداث. فهم هذه التفاعلات مفتاح الفوز.
+          {t('interactions.description')}
         </p>
       </Reveal>
 

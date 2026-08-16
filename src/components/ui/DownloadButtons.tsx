@@ -1,7 +1,9 @@
 import { Download, Apple, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { ANDROID_LINK, ANDROID_DIRECT_LINK, IOS_LINK } from "../../data/gameData";
 
 export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
+  const { t } = useTranslation();
   const pad = size === "lg" ? "px-8 py-4 text-lg" : "px-6 py-3.5 text-base";
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -13,7 +15,7 @@ export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
       >
         <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-l from-transparent via-white/40 to-transparent skew-x-12" />
         <Zap className="w-5 h-5 relative transition-transform duration-300 group-hover:scale-110" strokeWidth={2.5} />
-        <span className="relative">تحميل مباشر — أندرويد</span>
+        <span className="relative">{t('common.directDownload')} — {t('common.android')}</span>
       </a>
 
       <a
@@ -25,7 +27,7 @@ export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
       >
         <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-l from-transparent via-white/40 to-transparent skew-x-12" />
         <Download className="w-5 h-5 relative transition-transform duration-300 group-hover:scale-110" strokeWidth={2.5} />
-        <span className="relative">Google Drive — أندرويد</span>
+        <span className="relative">{t('common.googleDrive')} — {t('common.android')}</span>
       </a>
 
       {IOS_LINK ? (
@@ -37,7 +39,7 @@ export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           <Apple className="w-5 h-5 transition-transform duration-300 hover:scale-110" />
-          حمّل الآن — iOS
+          <span className="relative">{t('common.downloadNow')} — {t('common.iOS')}</span>
         </a>
       ) : (
         <button
@@ -46,7 +48,7 @@ export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           <Apple className="w-5 h-5 opacity-50" />
-          قريبًا على iOS
+          {t('common.comingSoon')} {t('common.iOS')}
         </button>
       )}
     </div>

@@ -6,6 +6,17 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // Exclude APK from build
+          if (assetInfo.name === 'ديسيت.apk') {
+            return '';
+          }
+          return assetInfo.name;
+        }
+      }
+    }
   },
   server: {
     historyApiFallback: true,

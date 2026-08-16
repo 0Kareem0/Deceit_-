@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Role } from "../../data/gameData";
+import { useTranslation } from "react-i18next";
 
 interface CharacterCardProps {
   item: Role;
@@ -8,6 +9,7 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ item, factionColor }: CharacterCardProps) {
+  const { t } = useTranslation();
   const [imageStatus, setImageStatus] = useState<"loading" | "loaded" | "error">("loading");
 
   const handleImageError = () => {
@@ -63,13 +65,13 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
                 className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-xs text-[#EAE2D2]/70"
                 style={{ background: `radial-gradient(circle at 50% 30%, ${factionColor}2E, #0A0710)` }}
                 role="status"
-                aria-label={`جارٍ تحميل صورة ${item.name}`}
+                aria-label={`${t('character.loadingImage')} ${item.name}`}
               >
                 <span
                   className="h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"
                   style={{ borderColor: `${factionColor} transparent ${factionColor} ${factionColor}` }}
                 />
-                <span style={{ fontFamily: "'Tajawal', sans-serif" }}>جارٍ تحميل الصورة</span>
+                <span style={{ fontFamily: "'Tajawal', sans-serif" }}>{t('character.loadingImage')}</span>
               </div>
             )}
             {/* Gradient overlay on hover */}

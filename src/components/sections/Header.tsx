@@ -1,8 +1,22 @@
 import { useState, useEffect } from "react";
-import { Crown, Eye, Moon, Sun } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Crown, Eye, Moon, Sun, ArrowRight } from "lucide-react";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isCharacterPage = location.pathname.startsWith('/character/');
+
+  const handleBack = () => {
+    navigate('/');
+    setTimeout(() => {
+      const rolesSection = document.getElementById('roles');
+      if (rolesSection) {
+        rolesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,14 +46,15 @@ export function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span
-              className="text-2xl font-bold bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent transition-all duration-300 group-hover:from-[#F1E4C3] group-hover:to-[#C6A369] cursor-pointer"
+            <Link
+              to="/"
+              className="text-2xl font-bold bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent transition-all duration-300 group-hover:from-[#F1E4C3] group-hover:to-[#C6A369]"
               style={{ 
                 fontFamily: "'Scheherazade New', serif", 
               }}
             >
               ديسيت
-            </span>
+            </Link>
             <span 
               className="text-xs text-[#8C82A0] transition-colors duration-300 group-hover:text-[#C6A369]"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
@@ -50,40 +65,59 @@ export function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-1" style={{ fontFamily: "'Cairo', sans-serif" }}>
-          {[
-            { href: "#about", label: "اللعبة", icon: <Eye className="w-4 h-4" /> },
-            { href: "#cycle", label: "الليل والنهار", icon: <Moon className="w-4 h-4" /> },
-            { href: "#roles", label: "الشخصيات", icon: <Crown className="w-4 h-4" /> },
-            { href: "#goals", label: "الأهداف", icon: <Sun className="w-4 h-4" /> },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="relative px-4 py-2 rounded-lg text-sm text-[#8C82A0] hover:text-[#EAE2D2] transition-all duration-300 group hover:bg-white/[0.03]"
-            >
-              <span className="flex items-center gap-2">
-                {item.icon}
-                {item.label}
-              </span>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#C6A369] to-[#6B1B38] group-hover:w-full transition-all duration-300" />
-            </a>
-          ))}
-        </nav>
+        {!isCharacterPage && (
+          <nav className="hidden md:flex items-center gap-1" style={{ fontFamily: "'Cairo', sans-serif" }}>
+            {[
+              { href: "#about", label: "اللعبة", icon: <Eye className="w-4 h-4" /> },
+              { href: "#cycle", label: "الليل والنهار", icon: <Moon className="w-4 h-4" /> },
+              { href: "#roles", label: "الشخصيات", icon: <Crown className="w-4 h-4" /> },
+              { href: "#goals", label: "الأهداف", icon: <Sun className="w-4 h-4" /> },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative px-4 py-2 rounded-lg text-sm text-[#8C82A0] hover:text-[#EAE2D2] transition-all duration-300 group hover:bg-white/[0.03]"
+              >
+                <span className="flex items-center gap-2">
+                  {item.icon}
+                  {item.label}
+                </span>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#C6A369] to-[#6B1B38] group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+          </nav>
+        )}
 
         {/* Download Button */}
-        <a
-          href="#download" 
-          className="relative group px-6 py-3 rounded-xl text-sm font-bold text-[#050308] overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)]"
-          style={{ fontFamily: "'Cairo', sans-serif" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914]" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          <span className="relative flex items-center gap-2">
-            <span>حمّل الآن</span>
-            <Crown className="w-4 h-4" />
-          </span>
-        </a>
+        {!isCharacterPage && (
+          <a
+            href="#download" 
+            className="relative group px-6 py-3 rounded-xl text-sm font-bold text-[#050308] overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)]"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914]" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <span className="relative flex items-center gap-2">
+              <span>حمّل الآن</span>
+              <Crown className="w-4 h-4" />
+            </span>
+          </a>
+        )}
+
+        {/* Back Button for Character Pages */}
+        {isCharacterPage && (
+          <button
+            onClick={handleBack}
+            className="relative group px-6 py-3 rounded-xl text-sm font-bold text-[#EAE2D2] border border-[#C6A369]/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)] hover:border-[#C6A369]/60 bg-transparent cursor-pointer"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-l from-[#C6A369]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 rotate-180" />
+              <span>العودة</span>
+            </span>
+          </button>
+        )}
       </div>
 
       {/* Decorative line */}

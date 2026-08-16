@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Role } from "../../data/gameData";
 
 interface CharacterCardProps {
@@ -15,8 +16,9 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
   };
 
   return (
-    <div
-      className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden flex flex-col h-full"
+    <Link 
+      to={`/character/${encodeURIComponent(item.name)}`}
+      className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden flex flex-col h-full cursor-pointer"
       style={{ 
         borderColor: factionColor + "2A",
         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -111,6 +113,6 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
           background: `radial-gradient(circle at center, ${factionColor}15, transparent 70%)`,
         }}
       />
-    </div>
+    </Link>
   );
 }

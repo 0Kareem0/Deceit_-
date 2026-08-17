@@ -1,6 +1,6 @@
 export const ANDROID_LINK =
   "https://drive.google.com/file/d/1_eCu4wxU6cSfPPScbB_Kr7A6izxLCBRn/view?usp=sharing";
-export const ANDROID_DIRECT_LINK = "/deceit.apk"; 
+export const ANDROID_DIRECT_LINK = "/ديسيت.apk"; 
 export const IOS_LINK: string | null = null; 
 
 export interface DetailedRole extends Role {

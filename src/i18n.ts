@@ -23,7 +23,9 @@ i18n
     },
     interpolation: {
       escapeValue: false
-    }
+    },
+    // Never expose unresolved translation keys in the rendered page.
+    parseMissingKeyHandler: (_key, defaultValue) => defaultValue ?? ''
   });
 
 export default i18n;

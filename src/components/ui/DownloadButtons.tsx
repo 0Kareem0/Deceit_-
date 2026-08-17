@@ -7,16 +7,18 @@ export function DownloadButtons({ size = "base" }: { size?: "base" | "lg" }) {
   const pad = size === "lg" ? "px-8 py-4 text-lg" : "px-6 py-3.5 text-base";
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4">
-      <a
-        href={ANDROID_DIRECT_LINK}
-        download
-        className={`group relative w-full sm:w-auto flex items-center justify-center gap-3 ${pad} rounded-xl font-bold text-[#050308] overflow-hidden bg-gradient-to-l from-[#EAD6A8] to-[#C6A369] shadow-[0_10px_40px_-10px_rgba(198,163,105,0.55)] hover:shadow-[0_15px_60px_-8px_rgba(198,163,105,0.9)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300`}
-        style={{ fontFamily: "'Cairo', sans-serif" }}
-      >
-        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-l from-transparent via-white/40 to-transparent skew-x-12" />
-        <Zap className="w-5 h-5 relative transition-transform duration-300 group-hover:scale-110" strokeWidth={2.5} />
-        <span className="relative">{t('common.directDownload')} — {t('common.android')}</span>
-      </a>
+      {ANDROID_DIRECT_LINK && (
+        <a
+          href={ANDROID_DIRECT_LINK}
+          download
+          className={`group relative w-full sm:w-auto flex items-center justify-center gap-3 ${pad} rounded-xl font-bold text-[#050308] overflow-hidden bg-gradient-to-l from-[#EAD6A8] to-[#C6A369] shadow-[0_10px_40px_-10px_rgba(198,163,105,0.55)] hover:shadow-[0_15px_60px_-8px_rgba(198,163,105,0.9)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300`}
+          style={{ fontFamily: "'Cairo', sans-serif" }}
+        >
+          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-l from-transparent via-white/40 to-transparent skew-x-12" />
+          <Zap className="w-5 h-5 relative transition-transform duration-300 group-hover:scale-110" strokeWidth={2.5} />
+          <span className="relative">{t('common.directDownload')} — {t('common.android')}</span>
+        </a>
+      )}
 
       <a
         href={ANDROID_LINK}

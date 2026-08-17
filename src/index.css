@@ -14,6 +14,37 @@ html {
   scroll-behavior: smooth;
 }
 
+/* RTL support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+[dir="rtl"] .ml-auto {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
 @keyframes floaty {
   0%,
   100% {

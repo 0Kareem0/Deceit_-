@@ -6,17 +6,17 @@ export function Footer() {
   return (
     <>
       {/* Final CTA */}
-      <section className="text-center py-20 px-5">
+      <section className="text-center py-16 sm:py-20 px-5">
           <h2
-            className="text-3xl sm:text-5xl font-extrabold mb-4"
+            className="text-2xl sm:text-3xl lg:text-5xl font-extrabold mb-4"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
             {t('footer.cta.title')}
           </h2>
 
           <p
-            className="text-[#8C82A0] max-w-xl mx-auto"
-            style={{ fontFamily: "'Tajawal', sans-serif" }}
+            className="text-sm sm:text-base text-[#9C8FA8] max-w-xl mx-auto"
+            style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
           >
             {t('footer.cta.desc')}
           </p>
@@ -29,30 +29,30 @@ export function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-center text-center">
             <h3
-              className="text-3xl font-bold text-white mb-2"
+              className="text-2xl sm:text-3xl font-bold text-white mb-2"
               style={{ fontFamily: "'Aref Ruqaa', serif" }}
             >
               {t('nav.deceit')}
             </h3>
 
             <p
-              className="text-sm text-[#8C82A0] max-w-md"
-              style={{ fontFamily: "'Tajawal', sans-serif" }}
+              className="text-xs sm:text-sm text-[#9C8FA8] max-w-md"
+              style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
             >
               {t('footer.tagline')}
             </p>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-3 mt-7">
+            <div className="flex items-center gap-3 mt-5 sm:mt-7">
               <a
                 href="https://www.instagram.com/deceit.11?igsh=MXZneGMzMTJyd2p2bQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="group w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                className="group w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
               >
                 <Instagram
-                  size={19}
+                  size={17}
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
               </a>
@@ -62,10 +62,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="group w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                className="group w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
               >
                 <Facebook
-                  size={19}
+                  size={17}
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
               </a>
@@ -75,10 +75,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="group w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                className="group w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
               >
                 <Music2
-                  size={19}
+                  size={17}
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
               </a>

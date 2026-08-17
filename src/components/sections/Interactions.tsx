@@ -5,45 +5,45 @@ import { useTranslation } from "react-i18next";
 export function Interactions() {
   const { t } = useTranslation();
   return (
-    <section className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-20">
+    <section className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-20 scroll-mt-16">
       <Reveal className="text-center mb-14">
         <Eyebrow>{t('interactions.subtitle')}</Eyebrow>
         <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
           {t('interactions.title')}
         </h2>
-        <p className="mt-4 text-[#8C82A0] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+        <p className="mt-4 text-[#9C8FA8] max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
           {t('interactions.description')}
         </p>
       </Reveal>
 
-      <div className="grid sm:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {INTERACTIONS.map((chain, i) => (
-          <Reveal key={chain.title} delay={i * 120}>
-            <div 
-              className="h-full rounded-2xl p-6 border border-white/[0.07] bg-white/[0.015] transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_-15px_rgba(198,163,105,0.25)] hover:border-[#C6A369]/40"
+          <Reveal key={chain.key} delay={i * 120}>
+            <div
+              className="h-full rounded-2xl p-5 sm:p-6 border border-white/[0.07] bg-white/[0.015] transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_-15px_rgba(198,163,105,0.25)] hover:border-[#C6A369]/40"
             >
-              <h4 
-                className="font-bold mb-5 text-[#C6A369] transition-colors duration-300 hover:text-[#EAD6A8]" 
+              <h4
+                className="font-bold mb-4 sm:mb-5 text-sm sm:text-base text-[#C6A369] transition-colors duration-300 hover:text-[#EAD6A8]"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
-                {chain.title}
+                {t(`interactions.${chain.key}.title`)}
               </h4>
               <div className="space-y-3">
                 {chain.steps.map((s, idx) => (
-                  <div 
-                    key={s} 
+                  <div
+                    key={idx}
                     className="flex items-center gap-3 transition-all duration-300 hover:translate-x-2"
                   >
-                    <span 
-                      className="shrink-0 w-7 h-7 rounded-full border border-[#C6A369]/40 text-[#C6A369] text-xs flex items-center justify-center transition-all duration-300 hover:border-[#C6A369] hover:bg-[#C6A369]/10"
+                    <span
+                      className="shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-[#C6A369]/40 text-[#C6A369] text-xs flex items-center justify-center transition-all duration-300 hover:border-[#C6A369] hover:bg-[#C6A369]/10"
                     >
                       {idx + 1}
                     </span>
-                    <span 
-                      className="text-sm text-[#EAE2D2]/90 transition-colors duration-300 hover:text-[#EAE2D2]" 
-                      style={{ fontFamily: "'Tajawal', sans-serif" }}
+                    <span
+                      className="text-xs sm:text-sm text-[#9C8FA8] transition-colors duration-300 hover:text-[#EAE2D2]"
+                      style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
                     >
-                      {s}
+                      {t(`interactions.${chain.key}.steps.${idx}`)}
                     </span>
                   </div>
                 ))}

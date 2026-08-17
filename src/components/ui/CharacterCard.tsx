@@ -4,7 +4,7 @@ import { Role } from "../../data/gameData";
 import { useTranslation } from "react-i18next";
 
 interface CharacterCardProps {
-  item: Role;
+  item: Role & { translatedName?: string; translatedDesc?: string };
   factionColor: string;
 }
 
@@ -95,17 +95,17 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
         )}
       </div>
       
-      <h4 
+      <h4
         className="text-lg font-bold text-[#EAE2D2] mb-1 transition-colors duration-300 group-hover:text-[#C6A369]"
         style={{ fontFamily: "'Aref Ruqaa', serif" }}
       >
-        {item.name}
+        {"translatedName" in item ? item.translatedName : item.name}
       </h4>
-      <p 
+      <p
         className="text-sm text-[#8C82A0] leading-relaxed transition-colors duration-300 group-hover:text-[#EAE2D2]/80 flex-grow"
         style={{ fontFamily: "'Tajawal', sans-serif" }}
       >
-        {item.desc}
+        {"translatedDesc" in item ? item.translatedDesc : item.desc}
       </p>
       
       {/* Glow effect on card */}

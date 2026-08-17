@@ -71,22 +71,7 @@
     },
     "quote": "The game is not measured by knowing the roles only, but by understanding what happened in the darkness... and why it happened."
   },
-  "roles": {
-    "title": "Characters",
-    "subtitle": "Meet the Players",
-    "description": "Each character has a unique role and special ability. Learn about the roles to understand how they can help their team.",
-    "filter": {
-      "all": "All",
-      "kingdom": "Kingdom",
-      "shadows": "Shadows",
-      "neutral": "Neutral"
-    }
-  },
-  "interactions": {
-    "title": "Ability Interactions",
-    "subtitle": "How Powers Collide",
-    "description": "Understanding how different abilities interact is crucial for success. Learn which powers counter others and how to use them strategically."
-  },
+
   "goals": {
     "title": "Winning Conditions",
     "subtitle": "Path to Victory",
@@ -122,6 +107,142 @@
     "tagline": "A game of lies and suspicion… trust no one."
   },
   "kingdom": "Kingdom",
-  "shadows": "Shadows", 
-  "neutral": "Neutral"
+  "shadows": "Shadows",
+  "neutral": "Neutral",
+  "roles": {
+    "subtitle": "Choose Your Allegiance",
+    "title": "The Roles",
+    "description": "Discover the characters, abilities, and hidden motives that shape every game.",
+    "filter": {
+      "all": "All Roles",
+      "kingdom": "Kingdom",
+      "shadows": "Shadows",
+      "neutral": "Neutral"
+    },
+    "King": {
+      "name": "King",
+      "desc": "King, the ruler of the kingdom, decisions determine everyone's fate. Important and influential leadership role."
+    },
+    "Guard": {
+      "name": "Guard",
+      "desc": "Protects one player from any attack during the night. Basic defensive role for the kingdom."
+    },
+    "Doctor": {
+      "name": "Doctor",
+      "desc": "Treats players who are injured or at risk of death. Essential for countering poison and killing abilities."
+    },
+    "Investigator": {
+      "name": "Investigator",
+      "desc": "Gathers information to reveal a player's true role. Helps discover Shadows."
+    },
+    "Knight": {
+      "name": "Knight",
+      "desc": "Brave warrior defending the kingdom with strength. Possesses combat abilities and protective skills."
+    },
+    "Royal Guard": {
+      "name": "Royal Guard",
+      "desc": "Personal guard for the king, protects royal family members."
+    },
+    "Judge": {
+      "name": "Judge",
+      "desc": "Judges disputes and decides fate. Plays a crucial role in pivotal decisions."
+    },
+    "Vizier": {
+      "name": "Vizier",
+      "desc": "King's advisor, manages kingdom affairs. Holds great influence and knowledge."
+    },
+    "Priest": {
+      "name": "Priest",
+      "desc": "Guides people and performs religious rituals. May have spiritual abilities or special knowledge."
+    },
+    "Messenger": {
+      "name": "Messenger",
+      "desc": "Transmits messages and secret communications between parties. Important for coordination and secret communication."
+    },
+    "Wizard": {
+      "name": "Wizard",
+      "desc": "Possesses magical knowledge and mysterious abilities. Has a unique ability that can change the game's course."
+    },
+    "Citizen": {
+      "name": "Citizen",
+      "desc": "Ordinary kingdom inhabitant. No special abilities, but vote is important in voting."
+    },
+    "Crown Prince": {
+      "name": "Crown Prince",
+      "desc": "Heir to the throne, ready to take power when the king falls."
+    },
+    "Trickster": {
+      "name": "Trickster",
+      "desc": "A character who tries to convince players they are a threat or part of an opposing team, until eliminated by vote."
+    },
+    "Assassin": {
+      "name": "Assassin",
+      "desc": "Silent killer from the shadows. Can eliminate targets during the night with precise strikes."
+    },
+    "Poisoner": {
+      "name": "Poisoner",
+      "desc": "Master of toxins and deadly substances. Can poison players over time, causing delayed death."
+    },
+    "Saboteur": {
+      "name": "Saboteur",
+      "desc": "Disrupts abilities and interferes with plans. Can disable key abilities at crucial moments."
+    },
+    "Deceiver": {
+      "name": "Deceiver",
+      "desc": "Expert at spreading misinformation and confusion. Can manipulate perceptions and create false narratives."
+    },
+    "Shadow Leader": {
+      "name": "Shadow Leader",
+      "desc": "Commands the Shadows with authority. Coordinates attacks and strategies for maximum impact."
+    },
+    "Whisperer": {
+      "name": "Whisperer",
+      "desc": "Communicates secretly with Shadows. Can share information without detection."
+    },
+    "Spy": {
+      "name": "Spy",
+      "desc": "Monitors a specific player and reveals interactions during the night. Helps in knowing who moves and active players."
+    },
+    "Forger": {
+      "name": "Forger",
+      "desc": "Corrupts investigation results, turning truth upside down. Makes investigators see false information."
+    },
+    "Impersonator": {
+      "name": "Impersonator",
+      "desc": "Copies another player's ability to use for one night only. Allows temporary use of any ability."
+    },
+    "Slasher": {
+      "name": "Slasher",
+      "desc": "Chooses a player each night to kill. If successful, the target dies normally. If failed, Slasher's ability enters a one-night cooldown."
+    }
+  },
+  "interactions": {
+    "subtitle": "When Abilities Collide",
+    "title": "Interactions",
+    "description": "Every ability can change the course of the night. Learn how powers meet, counter, and combine.",
+    "assassinationProtection": {
+      "title": "Assassination meets protection",
+      "steps": [
+        "Assassin attacks target",
+        "Guard protects same target",
+        "Attack fails and target survives"
+      ]
+    },
+    "poisonAntidote": {
+      "title": "Poison meets antidote",
+      "steps": [
+        "Poisoner poisons a player",
+        "Doctor treats same player",
+        "Poison is blocked and target survives"
+      ]
+    },
+    "sabotageInvestigation": {
+      "title": "Sabotage meets investigation",
+      "steps": [
+        "Saboteur disables investigator's ability",
+        "Investigator attempts investigation",
+        "No result appears due to sabotage"
+      ]
+    }
+  }
 }

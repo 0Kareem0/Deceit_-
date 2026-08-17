@@ -32,11 +32,11 @@ export function CharacterDetail() {
   // Get faction-specific background
   const getFactionBackground = (team: string) => {
     switch (team) {
-      case "المملكة":
+      case "Kingdom":
         return "radial-gradient(circle at top right, rgba(198, 163, 105, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(198, 163, 105, 0.05), transparent 50%)";
-      case "الظلال":
+      case "Shadows":
         return "radial-gradient(circle at top right, rgba(156, 51, 87, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(156, 51, 87, 0.05), transparent 50%)";
-      case "محايدون":
+      case "Neutral":
         return "radial-gradient(circle at top right, rgba(140, 130, 160, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(140, 130, 160, 0.05), transparent 50%)";
       default:
         return "none";
@@ -62,8 +62,8 @@ export function CharacterDetail() {
     );
   }
 
-  const factionColor = character.team === "المملكة" ? "#C6A369" : 
-                      character.team === "الظلال" ? "#9C3357" : "#8C82A0";
+  const factionColor = character.team === "Kingdom" ? "#C6A369" : 
+                      character.team === "Shadows" ? "#9C3357" : "#8C82A0";
 
   const handleImageError = () => {
     console.error(`Unable to load character image: ${character.image}`);
@@ -90,18 +90,18 @@ export function CharacterDetail() {
         </button>
 
         {/* Character Header */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-4xl">{character.icon}</span>
-            <h1 
-              className="text-4xl sm:text-5xl font-bold text-[#EAE2D2]"
+            <span className="text-3xl sm:text-4xl">{character.icon}</span>
+            <h1
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#EAE2D2]"
               style={{ fontFamily: "'Aref Ruqaa', serif" }}
             >
-              {character.name}
+              {t(`roles.${character.name}.name`)}
             </h1>
           </div>
           <div
-            className="inline-block px-4 py-2 rounded-full text-sm font-bold"
+            className="inline-block px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold"
             style={{
               fontFamily: "'Cairo', sans-serif",
               backgroundColor: factionColor + "20",
@@ -109,7 +109,7 @@ export function CharacterDetail() {
               border: `1px solid ${factionColor}40`
             }}
           >
-            {t(character.team === 'المملكة' ? 'kingdom' : character.team === 'الظلال' ? 'shadows' : 'neutral')}
+            {t(character.team === 'Kingdom' ? 'kingdom' : character.team === 'Shadows' ? 'shadows' : 'neutral')}
           </div>
         </div>
 
@@ -157,41 +157,41 @@ export function CharacterDetail() {
         </div>
 
         {/* Description */}
-        <div 
-          className="mb-8 p-6 rounded-xl border"
-          style={{ 
+        <div
+          className="mb-6 sm:mb-8 p-4 sm:p-6 rounded-xl border"
+          style={{
             borderColor: factionColor + "2A",
             background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
           }}
         >
-          <p 
-            className="text-lg leading-relaxed"
-            style={{ fontFamily: "'Tajawal', sans-serif" }}
+          <p
+            className="text-base sm:text-lg leading-relaxed"
+            style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
           >
-            {character.desc}
+            {t(`roles.${character.name}.desc`)}
           </p>
         </div>
 
         {/* Ability Section */}
         <div
-          className="mb-8 p-6 rounded-xl border"
+          className="mb-6 sm:mb-8 p-4 sm:p-6 rounded-xl border"
           style={{
             borderColor: factionColor + "2A",
             background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
           }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <Zap className="w-6 h-6" style={{ color: factionColor }} />
+            <Zap className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: factionColor }} />
             <h2
-              className="text-2xl font-bold"
+              className="text-xl sm:text-2xl font-bold"
               style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
             >
               {t('character.ability')}
             </h2>
           </div>
           <p
-            className="text-lg leading-relaxed"
-            style={{ fontFamily: "'Tajawal', sans-serif" }}
+            className="text-base sm:text-lg leading-relaxed"
+            style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
           >
             {character.ability}
           </p>
@@ -200,24 +200,24 @@ export function CharacterDetail() {
         {/* Cooldown Section */}
         {character.cooldown && (
           <div
-            className="mb-8 p-6 rounded-xl border"
+            className="mb-6 sm:mb-8 p-4 sm:p-6 rounded-xl border"
             style={{
               borderColor: factionColor + "2A",
               background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-6 h-6" style={{ color: factionColor }} />
+              <Shield className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: factionColor }} />
               <h2
-                className="text-2xl font-bold"
+                className="text-xl sm:text-2xl font-bold"
                 style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
               >
                 {t('character.cooldown')}
               </h2>
             </div>
             <p
-              className="text-lg leading-relaxed"
-              style={{ fontFamily: "'Tajawal', sans-serif" }}
+              className="text-base sm:text-lg leading-relaxed"
+              style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
             >
               {character.cooldown}
             </p>
@@ -226,16 +226,16 @@ export function CharacterDetail() {
 
         {/* Constraints Section */}
         <div
-          className="p-6 rounded-xl border"
+          className="p-4 sm:p-6 rounded-xl border"
           style={{
             borderColor: factionColor + "2A",
             background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)"
           }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <Info className="w-6 h-6" style={{ color: factionColor }} />
+            <Info className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: factionColor }} />
             <h2
-              className="text-2xl font-bold"
+              className="text-xl sm:text-2xl font-bold"
               style={{ fontFamily: "'Cairo', sans-serif", color: factionColor }}
             >
               {t('character.constraints')}
@@ -252,7 +252,7 @@ export function CharacterDetail() {
                   className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                   style={{ backgroundColor: factionColor }}
                 />
-                <span className="text-[#EAE2D2]/90 leading-relaxed">{constraint}</span>
+                <span className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>{constraint}</span>
               </li>
             ))}
           </ul>

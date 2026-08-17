@@ -1,10 +1,10 @@
 export const ANDROID_LINK =
   "https://drive.google.com/file/d/1_eCu4wxU6cSfPPScbB_Kr7A6izxLCBRn/view?usp=sharing";
-export const ANDROID_DIRECT_LINK = "/ديسيت.apk";
-export const IOS_LINK: string | null = null; // ضع رابط الـ App Store هنا عندما يتوفر
+export const ANDROID_DIRECT_LINK = "public/ديسيت.apk"; 
+export const IOS_LINK: string | null = null; 
 
 export interface DetailedRole extends Role {
-  team: string;
+  team: 'Kingdom' | 'Shadows' | 'Neutral';
   ability: string;
   constraints: string[];
   cooldown?: string;
@@ -16,7 +16,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "King",
     desc: "The king, the ruler of the kingdom and the most important character, must be protected at any cost.",
     image: "/cards/deset_king.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Has no special ability.",
     constraints: [
       "Cannot use any night ability.",
@@ -34,7 +34,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Crown Prince",
     desc: "The heir to the throne, ready to take power when the king falls.",
     image: "/cards/deset_crown_prince.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "If the king dies, the crown prince becomes the new king.",
     constraints: [
       "Transformation to king happens automatically immediately upon king's death.",
@@ -51,7 +51,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Vizier",
     desc: "The king's closest advisor and holder of secret information.",
     image: "/cards/deset_vizier.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Gains accurate information about a randomly chosen player's team.",
     constraints: [
       "At the start of the game, the vizier receives information about a random player.",
@@ -70,7 +70,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Guard",
     desc: "The guard, protects kingdom members from assassination attempts.",
     image: "/cards/deset_guard.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Protects a player from the first direct killing attack during the night.",
     constraints: [
       "Chooses one player each night to protect.",
@@ -88,7 +88,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Doctor",
     desc: "The doctor, treats the injured and tries to save them from death.",
     image: "/cards/deset_physician.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Chooses a player each night to treat from treatable attacks.",
     constraints: [
       "Chooses one player each night.",
@@ -104,7 +104,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Investigator",
     desc: "The investigator, gathers information to uncover Shadow members.",
     image: "/cards/deset_investigator.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Gains accurate information about a player each night, unless the player is affected by the Forger's ability.",
     constraints: [
       "Chooses one player each night to investigate.",
@@ -122,7 +122,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Judge",
     desc: "The judge, has legal authority to intervene in voting decisions.",
     image: "/cards/deset_judge.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Must use ability before voting result is finalized; when activated, voting is canceled and no player is eliminated.",
     constraints: [
       "Must use ability before voting result is finalized.",
@@ -140,7 +140,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Knight",
     desc: "The knight, a brave warrior defending the kingdom with strength.",
     image: "/cards/deset_knight.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Has a shield that protects himself or another player from a direct killing attack.",
     constraints: [
       "Chooses one shield each night (self or another player).",
@@ -158,7 +158,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Royal Guard",
     desc: "Personal guard for the king, protects royal family members.",
     image: "/cards/deset_royal_guard.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Protects the king and crown prince from direct killing attacks.",
     constraints: [
       "Chooses one player each night to protect.",
@@ -175,7 +175,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Priest",
     desc: "Guides people and performs religious rituals.",
     image: "/cards/deset_priest.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Can determine if a player has been converted to another team.",
     constraints: [
       "Chooses one player each night.",
@@ -193,7 +193,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Messenger",
     desc: "Delivers secret messages and communications between parties.",
     image: "/cards/deset_messenger.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Can send a secret message to one player each night.",
     constraints: [
       "Chooses one player each night to send a message.",
@@ -209,7 +209,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Wizard",
     desc: "Possesses magical knowledge and mysterious abilities.",
     image: "/cards/deset_wizard.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Can silence one player each night, preventing them from using their ability.",
     constraints: [
       "Chooses one player each night to silence.",
@@ -226,7 +226,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Citizen",
     desc: "Ordinary kingdom inhabitant with no special abilities.",
     image: "/cards/deset_citizen.webp",
-    team: "Kingdom",
+    team: "Kingdom" as const,
     ability: "Has no special abilities; relies on voting.",
     constraints: [
       "Cannot use any night ability.",
@@ -240,7 +240,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Shadow Leader",
     desc: "Proposes the main night kill target and guides Shadows toward the appropriate victim.",
     image: "/cards/deset_shadow_leader.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Proposes the main night kill target.",
     constraints: [
       "Proposal is not mandatory for the team.",
@@ -256,7 +256,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Assassin",
     desc: "Has the final decision to execute the main kill chosen by the Shadows.",
     image: "/cards/deset_assassin.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Executes the main kill chosen by the Shadows.",
     constraints: [
       "Has final say in executing kill.",
@@ -272,7 +272,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Spy",
     desc: "Monitors a specific player and reveals interactions during the night.",
     image: "/cards/deset_spy.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Monitors a player and knows who interacts with them during the night.",
     constraints: [
       "Chooses one player each night to monitor.",
@@ -288,7 +288,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Poisoner",
     desc: "Poisons a player who will die later unless treated.",
     image: "/cards/deset_poisoner.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Poisons one player each night; the target dies after two nights if untreated.",
     constraints: [
       "Chooses one player each night to poison.",
@@ -301,7 +301,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Saboteur",
     desc: "Disables another player's ability for the night.",
     image: "/cards/deset_saboteur.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Disables one player's ability each night.",
     constraints: [
       "Chooses one player each night to disable.",
@@ -318,7 +318,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Forger",
     desc: "Corrupts investigation results, making truth appear false.",
     image: "/cards/deset_forger.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Chooses a player each night to corrupt investigation results against them.",
     constraints: [
       "Chooses one player each night to forge.",
@@ -335,7 +335,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Impersonator",
     desc: "Copies another player's ability to use for one night.",
     image: "/cards/deset_impersonator.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Copies another player's ability and uses it for one night.",
     constraints: [
       "Chooses one player each night to copy ability.",
@@ -352,7 +352,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Slasher",
     desc: "Chooses a player each night to kill; if successful, the target dies normally, otherwise the ability is on cooldown for one night.",
     image: "/cards/deset_slasher.webp",
-    team: "Shadows",
+    team: "Shadows" as const,
     ability: "Kills a player directly each night.",
     constraints: [
       "Chooses one player each night to kill.",
@@ -369,7 +369,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     name: "Trickster",
     desc: "Manipulates players to create suspicion; wins by being voted out.",
     image: "/cards/deset_trickster.webp",
-    team: "Neutral",
+    team: "Neutral" as const,
     ability: "Has no direct night ability; relies on manipulation and deception to get voted out.",
     constraints: [
       "Wins if voted out.",
@@ -418,8 +418,8 @@ export const NEUTRAL_ROLES: Role[] = [
   { icon: "🎪", name: "Trickster", desc: "A character who tries to convince players they are a threat or part of an opposing team, until eliminated by vote.", image: "/cards/deset_trickster.webp" }
 ];
 
-export const INTERACTIONS: { title: string; steps: string[] }[] = [
-  { title: "Assassination meets protection", steps: ["Assassin attacks target", "Guard protects same target", "Attack fails and target survives"] },
-  { title: "Poison meets antidote", steps: ["Poisoner poisons a player", "Doctor treats same player", "Poison is blocked and target survives"] },
-  { title: "Sabotage meets investigation", steps: ["Saboteur disables investigator's ability", "Investigator attempts investigation", "No result appears due to sabotage"] }
+export const INTERACTIONS: { key: string; title: string; steps: string[] }[] = [
+  { key: "assassinationProtection", title: "Assassination meets protection", steps: ["Assassin attacks target", "Guard protects same target", "Attack fails and target survives"] },
+  { key: "poisonAntidote", title: "Poison meets antidote", steps: ["Poisoner poisons a player", "Doctor treats same player", "Poison is blocked and target survives"] },
+  { key: "sabotageInvestigation", title: "Sabotage meets investigation", steps: ["Saboteur disables investigator's ability", "Investigator attempts investigation", "No result appears due to sabotage"] }
 ];

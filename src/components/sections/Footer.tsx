@@ -98,9 +98,9 @@ export function Footer() {
               className="text-xs text-[#6F687D]"
               style={{ fontFamily: "'Tajawal', sans-serif" }}
             >
-              Made {t('footer.madeBy')} {" "}
+               {t('footer.madeBy')} {" "}
               <span className="text-[#A99BFF] font-medium">
-                Kareem & Eslam
+               Kareem & Eslam 
               </span>
             </p>
           </div>

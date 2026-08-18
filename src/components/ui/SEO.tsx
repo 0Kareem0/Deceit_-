@@ -1,71 +1,317 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 interface SEOProps {
   title?: string;
   description?: string;
   characterName?: string;
+  characterDescription?: string;
+  characterTeam?: string;
+  image?: string;
+  canonical?: string;
+  noIndex?: boolean;
 }
 
-export function SEO({ title, description, characterName }: SEOProps) {
+const SITE_URL = "https://deceit.online";
+
+const DEFAULTS = {
+  ar: {
+    title: "Deceit Online | ديسيت - لعبة الخداع والأدوار المخفية",
+    description:
+      "ديسيت Deceit Online هي لعبة جماعية عربية تعتمد على الخداع، الأدوار المخفية، الاستنتاج، التحالفات والقدرات الخاصة. اكتشف شخصيات المملكة والظلال وتعرّف على قدراتها واستراتيجياتها.",
+  },
+
+  en: {
+    title: "Deceit Online - Arabic Social Deduction & Strategy Game",
+    description:
+      "Deceit Online is an Arabic multiplayer social deduction and strategy game featuring hidden roles, deception, alliances, investigation, and unique abilities.",
+  },
+};
+
+function setMeta(
+  attribute: "name" | "property",
+  key: string,
+  content: string
+) {
+  let element = document.querySelector(
+    `meta[${attribute}="${key}"]`
+  ) as HTMLMetaElement | null;
+
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute("content", content);
+}
+
+function setCanonical(url: string) {
+  let link = document.querySelector(
+    'link[rel="canonical"]'
+  ) as HTMLLinkElement | null;
+
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+
+  link.href = url;
+}
+
+export function SEO({
+  title,
+  description,
+  characterName,
+  characterDescription,
+  characterTeam,
+  image,
+  canonical,
+  noIndex = false,
+}: SEOProps) {
   const { i18n } = useTranslation();
-  const lang = i18n.language;
+
+  const language = i18n.language?.startsWith("ar")
+    ? "ar"
+    : "en";
 
   useEffect(() => {
-    const isArabic = lang === 'ar';
+    const isArabic = language === "ar";
 
+    let finalTitle =
+      title ||
+      DEFAULTS[language].title;
+
+    let finalDescription =
+      description ||
+      DEFAULTS[language].description;
+
+    /*
+     * Character SEO
+     */
     if (characterName) {
-      // Character page SEO
-      document.title = isArabic
-        ? `${characterName} - ديسيت | Deceit Online`
-        : `${characterName} - Deceit Online`;
+      if (isArabic) {
+        finalTitle =
+          `${characterName} | ديسيت - Deceit Online`;
 
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute(
-          'content',
-          isArabic
-            ? `تعرف على تفاصيل شخصية ${characterName} في لعبة ديسيت. القدرات، القيود، والاستراتيجيات. لعبة الخداع والاستراتيجية العربية.`
-            : `Learn about ${characterName} character in Deceit game. Abilities, constraints, and strategies. The ultimate Arabic deception and strategy game.`
-        );
-      }
-    } else if (title) {
-      document.title = title;
-      if (description) {
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', description);
-        }
-      }
-    } else {
-      // Default home page SEO
-      document.title = isArabic
-        ? "Deceit Online | ديسيت - لعبة الخداع والاستراتيجية العربية"
-        : "Deceit Online - The Ultimate Arabic Deception and Strategy Game";
+        finalDescription =
+          characterDescription ||
+          `تعرف على شخصية ${characterName} في لعبة ديسيت Deceit Online. اكتشف الفريق، القدرة الخاصة، القيود، فترة الانتظار والاستراتيجيات الخاصة بهذه الشخصية في لعبة الخداع والاستنتاج العربية.`;
+      } else {
+        finalTitle =
+          `${characterName} | Deceit Online`;
 
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute(
-          'content',
-          isArabic
-            ? "Deceit Online — ديسيت، لعبة الخداع والاستراتيجية العربية. لعبة جماعية تعتمد على الأدوار المخفية، الخداع، التحالفات والقدرات الخاصة. اكتشف شخصيات المملكة والظلال، وتعلم القدرات والاستراتيجيات. تحميل مجاني لأندرويد."
-            : "Deceit Online - The ultimate Arabic multiplayer game based on hidden roles, deception, alliances, and special abilities. Discover Kingdom and Shadow characters, learn abilities and strategies. Free download for Android."
-        );
+        finalDescription =
+          characterDescription ||
+          `Learn about ${characterName} in Deceit Online. Discover the character's team, ability, constraints, cooldown, and strategy in the Arabic social deduction game.`;
       }
     }
 
-    // Update HTML lang attribute
-    document.documentElement.lang = isArabic ? 'ar' : 'en';
-    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+    /*
+     * Document title
+     */
+    document.title = finalTitle;
 
-    // Cleanup on unmount
+    /*
+     * Language
+     */
+    document.documentElement.lang = language;
+    document.documentElement.dir = isArabic
+      ? "rtl"
+      : "ltr";
+
+    /*
+     * Basic SEO
+     */
+    setMeta(
+      "name",
+      "description",
+      finalDescription
+    );
+
+    setMeta(
+      "name",
+      "robots",
+      noIndex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large"
+    );
+
+    setMeta(
+      "name",
+      "googlebot",
+      noIndex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large"
+    );
+
+    /*
+     * Canonical
+     */
+    const currentCanonical =
+      canonical ||
+      `${SITE_URL}${window.location.pathname}`;
+
+    setCanonical(currentCanonical);
+
+    /*
+     * Open Graph
+     */
+    setMeta(
+      "property",
+      "og:title",
+      finalTitle
+    );
+
+    setMeta(
+      "property",
+      "og:description",
+      finalDescription
+    );
+
+    setMeta(
+      "property",
+      "og:url",
+      currentCanonical
+    );
+
+    setMeta(
+      "property",
+      "og:type",
+      characterName
+        ? "article"
+        : "website"
+    );
+
+    setMeta(
+      "property",
+      "og:locale",
+      isArabic
+        ? "ar_AR"
+        : "en_US"
+    );
+
+    setMeta(
+      "property",
+      "og:site_name",
+      "Deceit Online | ديسيت"
+    );
+
+    setMeta(
+      "property",
+      "og:image",
+      image ||
+        `${SITE_URL}/og-image.png`
+    );
+
+    setMeta(
+      "property",
+      "og:image:alt",
+      finalTitle
+    );
+
+    /*
+     * Twitter
+     */
+    setMeta(
+      "name",
+      "twitter:card",
+      "summary_large_image"
+    );
+
+    setMeta(
+      "name",
+      "twitter:title",
+      finalTitle
+    );
+
+    setMeta(
+      "name",
+      "twitter:description",
+      finalDescription
+    );
+
+    setMeta(
+      "name",
+      "twitter:image",
+      image ||
+        `${SITE_URL}/og-image.png`
+    );
+
+    /*
+     * Character structured data
+     */
+    const oldSchema =
+      document.getElementById(
+        "deceit-character-schema"
+      );
+
+    if (oldSchema) {
+      oldSchema.remove();
+    }
+
+    if (characterName) {
+      const schema = document.createElement(
+        "script"
+      );
+
+      schema.id =
+        "deceit-character-schema";
+
+      schema.type =
+        "application/ld+json";
+
+      schema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        name: "Deceit Online",
+        alternateName: "ديسيت",
+        url: currentCanonical,
+        image:
+          image ||
+          `${SITE_URL}/og-image.png`,
+        description: finalDescription,
+        inLanguage: language,
+        character: {
+          "@type": "Thing",
+          name: characterName,
+          description:
+            characterDescription ||
+            finalDescription,
+          ...(characterTeam && {
+            memberOf: {
+              "@type": "Thing",
+              name: characterTeam,
+            },
+          }),
+        },
+      });
+
+      document.head.appendChild(schema);
+    }
+
     return () => {
-      document.title = "Deceit Online | ديسيت - لعبة الخداع والاستراتيجية العربية";
-      document.documentElement.lang = 'ar';
-      document.documentElement.dir = 'rtl';
+      const schema =
+        document.getElementById(
+          "deceit-character-schema"
+        );
+
+      if (schema) {
+        schema.remove();
+      }
     };
-  }, [title, description, characterName, lang]);
+  }, [
+    language,
+    title,
+    description,
+    characterName,
+    characterDescription,
+    characterTeam,
+    image,
+    canonical,
+    noIndex,
+  ]);
 
   return null;
 }

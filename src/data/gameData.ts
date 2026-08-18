@@ -411,7 +411,6 @@ export const KINGDOM_ROLES: Role[] = [
   { icon: "🧙", name: "Wizard", desc: "Possesses magical knowledge and mysterious abilities. Has a unique ability that can change the game's course.", image: "/cards/deset_wizard.webp" },
   { icon: "👤", name: "Citizen", desc: "Ordinary kingdom inhabitant. No special abilities, but vote is important in voting.", image: "/cards/deset_citizen.webp" },
   { icon: "🤴", name: "Crown Prince", desc: "Heir to the throne, ready to take power when the king falls.", image: "/cards/deset_crown_prince.webp" },
-  { icon: "🎪", name: "Trickster", desc: "A character who tries to convince players they are a threat or part of an opposing team, until eliminated by vote.", image: "/cards/deset_trickster.webp" }
 ];
 
 export const NEUTRAL_ROLES: Role[] = [

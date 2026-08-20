@@ -24,7 +24,11 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      
+      // Hide button when scrolled down less than 200px OR when close to the bottom of the page (within 150px)
+      if (scrolled > 200 && (maxScroll - scrolled > 150)) {
         setShowScrollTop(true);
       } else {
         setShowScrollTop(false);
@@ -102,17 +106,17 @@ export default function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
 
-      {/* Premium Scroll to Top Button */}
+      {/* Premium Scroll to Top Button - Subtle, auto-hides near footer to prevent overlaps */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 rtl:left-8 rtl:right-auto z-[9999] p-3.5 rounded-full bg-[#050308]/90 backdrop-blur-md border-2 border-[#C6A369]/50 text-[#C6A369] transition-all duration-500 shadow-[0_0_20px_rgba(198,163,105,0.3)] hover:border-[#C6A369] hover:text-[#EAD6A8] hover:shadow-[0_0_25px_rgba(198,163,105,0.7)] hover:-translate-y-1.5 active:scale-90 ${
+        className={`fixed bottom-6 right-6 rtl:left-6 rtl:right-auto sm:bottom-8 sm:right-8 sm:rtl:left-8 z-[9999] w-9.5 h-9.5 flex items-center justify-center rounded-full bg-[#050308]/80 backdrop-blur-md border border-[#C6A369]/30 text-[#C6A369]/70 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.6)] hover:border-[#C6A369] hover:text-[#EAD6A8] hover:shadow-[0_0_20px_rgba(198,163,105,0.5)] hover:-translate-y-1 active:scale-90 ${
           showScrollTop
-            ? "opacity-100 scale-100 pointer-events-auto"
+            ? "opacity-60 hover:opacity-100 scale-100 pointer-events-auto"
             : "opacity-0 scale-50 pointer-events-none"
         }`}
         aria-label={i18n.language === 'ar' ? "العودة إلى الأعلى" : "Scroll to top"}
       >
-        <ArrowUp className="w-5.5 h-5.5" />
+        <ArrowUp className="w-4.5 h-4.5" />
       </button>
     </div>
   );

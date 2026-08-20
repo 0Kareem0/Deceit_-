@@ -100,6 +100,7 @@
   "footer": {
     "rights": "All rights reserved",
     "madeBy": "Made By",
+    "privacy": "Privacy & Security Log",
     "cta": {
       "title": "The Throne Awaits… Who Will Rule?",
       "desc": "Join the Kingdom or scheme among the Shadows — Download now."
@@ -475,6 +476,136 @@
         "Investigator attempts investigation",
         "No result appears due to sabotage"
       ]
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "appName": "ديسيت (DECEIT)",
+    "subtitle": "Your privacy is important to us. This Privacy Policy explains how we collect, use, store, share, and protect your information when you use our mobile application and related services.",
+    "effectiveDate": "Effective Date: August 2026",
+    "quickNavTitle": "Policy Sections",
+    "backHome": "Back to Home",
+    "copyEmail": "Copy Email",
+    "copied": "Copied!",
+    "sendEmail": "Send Request",
+    "sections": {
+      "s1": {
+        "title": "1. Information We Collect",
+        "intro": "We collect information to provide, maintain, and improve our gameplay experience. The types of data collected depend on how you interact with the app.",
+        "device": {
+          "title": "A. Device & Technical Information",
+          "identifiers": "Device Identifiers: Device model, hardware model, operating system version, unique device identifier (UUID / Device ID), screen resolution, and system language settings.",
+          "network": "Network Data: IP address, internet connection type, and approximate geographic location (country/city level derived from IP).",
+          "diagnostics": "Diagnostics & Error Logs: Stack traces, crash reports, app performance metrics, and error logs collected via our internal issue logger (IssueLogger)."
+        },
+        "profile": {
+          "title": "B. Player Profile & Gameplay Data",
+          "info": "Profile Information: Player display name, chosen avatar, user preferences, and language settings.",
+          "gameplay": "Gameplay Data: Match statistics (wins, losses, games played), unlocked roles, achievements, in-game wallet currency/tokens balance, and session logs.",
+          "cloud": "Cloud & Sync Data: Multi-player room data, game lobby information, and room status stored via database services (MongoDB)."
+        },
+        "financial": {
+          "title": "C. Financial & Transaction Data",
+          "purchases": "In-App Purchases: Purchase transaction IDs, purchase history, timestamp, and entitlement status (Entitlements).",
+          "note": "We do not collect, process, or store credit card numbers, bank account details, or billing addresses. All payments are processed securely directly by Google Play Billing."
+        },
+        "ads": {
+          "title": "D. Advertising Data",
+          "identifiers": "Advertising Identifiers: Google Advertising ID (GAID / IDFA).",
+          "interaction": "Ad Interaction Data: Ad views, clicks, and rewarded ad completion events handled by Google Mobile Ads (AdMob)."
+        },
+        "feedback": {
+          "title": "E. User Feedback & Support",
+          "submissions": "Feedback Submissions: Message content, bug reports, and user-provided feedback submitted via in-app forms (FeedbackService)."
+        }
+      },
+      "s2": {
+        "title": "2. Why We Collect Data (Purpose of Processing)",
+        "intro": "We collect and use your data for the following specific purposes:",
+        "table": [
+          {
+            "category": "Device Identifiers",
+            "purpose": "Authenticating guest sessions, maintaining account security, preventing fraud/abuse, and enforcing anti-cheat rules."
+          },
+          {
+            "category": "Gameplay & Profile Data",
+            "purpose": "Saving local and online progress, calculating scores, managing leaderboards, and rendering multi-player room states."
+          },
+          {
+            "category": "Diagnostics & Error Logs",
+            "purpose": "Identifying software bugs, diagnosing crashes, optimizing app performance, and maintaining system stability."
+          },
+          {
+            "category": "In-App Purchases",
+            "purpose": "Verifying purchases, delivering virtual items/entitlements, and restoring purchases."
+          },
+          {
+            "category": "Advertising Data",
+            "purpose": "Displaying relevant non-personalized or personalized ads, enabling rewarded video ads, and measuring ad campaign performance."
+          },
+          {
+            "category": "User Feedback",
+            "purpose": "Responding to support inquiries, resolving technical issues, and incorporating feature requests."
+          }
+        ]
+      },
+      "s3": {
+        "title": "3. Data Sharing & Third-Party Services",
+        "intro": "We do not sell, rent, or trade your personal information. We only share data with trusted third-party service providers necessary to operate the application:",
+        "google": {
+          "title": "A. Google Play Services & Google Mobile Ads (AdMob)",
+          "purpose": "Ad serving, advertising measurement, fraud detection, and Google Play billing processing.",
+          "linkText": "Google Privacy Policy"
+        },
+        "mongo": {
+          "title": "B. Cloud Database & Infrastructure Services (MongoDB Atlas)",
+          "purpose": "Securely storing online match rooms, user scores, and feedback logs.",
+          "linkText": "MongoDB Privacy Policy"
+        }
+      },
+      "s4": {
+        "title": "4. In-App Purchases & Financial Privacy",
+        "p1": "All financial transactions are conducted through Google Play Store's official payment system (Google Play Billing).",
+        "bullet1": "We only receive cryptographic purchase tokens and transaction confirmation status to unlock purchased digital content inside the game.",
+        "bullet2": "We never store or request sensitive payment details."
+      },
+      "s5": {
+        "title": "5. Advertising & Choice Options",
+        "intro": "Our app integrates Google Mobile Ads (AdMob) to display advertisements and provide rewarded video options.",
+        "nonPersonalized": "Non-Personalized Ads: Depending on your consent and location, ads may be non-personalized.",
+        "optOut": "Opt-Out of Personalized Ads: You can reset or opt out of personalized advertising on Android devices by navigating to: Settings > Google > Ads > Reset advertising ID / Delete advertising ID."
+      },
+      "s6": {
+        "title": "6. Data Security & Storage",
+        "intro": "We implement standard administrative, technical, and physical security measures to protect your data:",
+        "encryption": "Encryption in Transit: Data transmitted between the app and cloud servers is encrypted using HTTPS / TLS.",
+        "localStorage": "Local Storage Security: Local configuration, game stats, and preferences are stored securely within isolated application sandbox storage (SharedPreferences).",
+        "access": "Access Controls: Database connections use restricted authentication credentials."
+      },
+      "s7": {
+        "title": "7. Data Retention & Deletion Rights",
+        "retentionTitle": "A. Data Retention",
+        "retentionDesc": "We retain player profile and gameplay data only for as long as necessary to fulfill the operational requirements of the game or as required by law.",
+        "rightsTitle": "B. User Data Rights & Account Deletion",
+        "rightsIntro": "You have the right to:",
+        "right1": "Access the data associated with your profile.",
+        "right2": "Request deletion of your account and associated game data.",
+        "right3": "Reset local game progress via app settings or by clearing app data on your device.",
+        "contactNote": "To request full deletion of your remote profile and feedback logs, please submit a request to our support email with your display name or device ID."
+      },
+      "s8": {
+        "title": "8. Children's Privacy (COPPA & GDPR)",
+        "content": "ديسيت (DECEIT) is designed for a general audience. We do not knowingly collect or solicit personal information from children under the age of 13 (or under 16/18 in applicable jurisdictions). If we learn that we have inadvertently collected personal data from a child without parental consent, we will take steps to delete that information promptly."
+      },
+      "s9": {
+        "title": "9. Changes to This Privacy Policy",
+        "content": "We may update this Privacy Policy periodically to reflect changes in our practices, software features, or legal requirements. We encourage you to review this page regularly. The \"Effective Date\" at the top indicates when the policy was last updated."
+      },
+      "s10": {
+        "title": "10. Contact Us",
+        "content": "If you have any questions or concerns regarding this Privacy Policy or your data, please contact us at:",
+        "email": "deceit2026@gmail.com"
+      }
     }
   }
 }

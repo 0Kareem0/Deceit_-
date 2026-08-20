@@ -121,3 +121,26 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Custom premium scrollbar for horizontal scrolling navigation items */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #C6A369, #8B6914);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #EAD6A8;
+}
+
+/* Firefox scrollbar support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #C6A369 rgba(255, 255, 255, 0.02);
+}
+

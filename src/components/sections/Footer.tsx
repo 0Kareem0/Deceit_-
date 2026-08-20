@@ -1,5 +1,6 @@
 import { Instagram, Facebook, Music2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -87,12 +88,22 @@ export function Footer() {
 
           {/* Bottom */}
           <div className="mt-10 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p
-              className="text-xs text-[#6F687D]"
-              style={{ fontFamily: "'Tajawal', sans-serif" }}
-            >
-              © 2026 Deceit. {t('footer.rights')}
-            </p>
+            <div className="flex items-center gap-4">
+              <p
+                className="text-xs text-[#6F687D]"
+                style={{ fontFamily: "'Tajawal', sans-serif" }}
+              >
+                © 2026 Deceit. {t('footer.rights')}
+              </p>
+              <span className="text-white/20 text-xs">•</span>
+              <Link
+                to="/privacy"
+                className="text-xs text-[#8C82A0] hover:text-[#C6A369] transition-colors"
+                style={{ fontFamily: "'Tajawal', sans-serif" }}
+              >
+                {t('footer.privacy')}
+              </Link>
+            </div>
 
             <p
               className="text-xs text-[#6F687D]"

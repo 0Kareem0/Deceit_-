@@ -22,6 +22,7 @@ export function Header() {
   const { t, i18n } = useTranslation();
 
   const isCharacterPage = location.pathname.startsWith("/character/");
+  const isSubPage = location.pathname !== "/";
 
   /* -------------------------------------------------- */
   /* Scroll state                                        */
@@ -114,28 +115,43 @@ export function Header() {
     }, 100);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (isSubPage) {
+      e.preventDefault();
+      navigate("/");
+      window.scrollTo(0, 0);
+    } else {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+
   /* -------------------------------------------------- */
   /* Navigation                                          */
   /* -------------------------------------------------- */
 
   const navigationItems = [
     {
-      href: "#about",
+      href: isSubPage ? "/#about" : "#about",
       label: t("nav.game"),
       icon: <Eye className="h-4 w-4" />,
     },
     {
-      href: "#cycle",
+      href: isSubPage ? "/#cycle" : "#cycle",
       label: t("nav.dayNight"),
       icon: <Moon className="h-4 w-4" />,
     },
     {
-      href: "#roles",
+      href: isSubPage ? "/#roles" : "#roles",
       label: t("nav.characters"),
       icon: <Crown className="h-4 w-4" />,
     },
     {
-      href: "#goals",
+      href: isSubPage ? "/#goals" : "#goals",
       label: t("nav.goals"),
       icon: <Sun className="h-4 w-4" />,
     },
@@ -174,6 +190,7 @@ export function Header() {
           <div className="group flex items-center gap-2 sm:gap-3">
             <Link
               to="/"
+              onClick={handleLogoClick}
               aria-label={t("nav.deceit")}
               className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#C6A369]/30 bg-gradient-to-br from-[#C6A369]/20 to-[#6B1B38]/20 transition-all duration-300 group-hover:border-[#C6A369]/60 group-hover:shadow-[0_0_20px_rgba(198,163,105,0.3)] sm:h-10 sm:w-10"
             >
@@ -185,6 +202,7 @@ export function Header() {
             <div className="flex min-w-0 flex-col">
               <Link
                 to="/"
+                onClick={handleLogoClick}
                 className="truncate text-xl font-bold bg-gradient-to-l from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent transition-all duration-300 group-hover:from-[#F1E4C3] group-hover:to-[#C6A369] sm:text-2xl"
                 style={{
                   fontFamily: "'Scheherazade New', serif",
@@ -263,7 +281,7 @@ export function Header() {
             {/* Desktop download */}
             {!isCharacterPage && (
               <a
-                href="#download"
+                href={isSubPage ? "/#download" : "#download"}
                 className="relative hidden overflow-hidden rounded-xl px-6 py-3 text-sm font-bold text-[#050308] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(198,163,105,0.4)] sm:flex"
                 style={{
                   fontFamily: "'Cairo', sans-serif",

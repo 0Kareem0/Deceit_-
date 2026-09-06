@@ -15,7 +15,7 @@ import {
   Footer,
   SEO,
 } from "./components";
-import { CharacterDetail, PrivacyPolicy } from "./components/pages";
+import { CharacterDetail, PrivacyPolicy, AppAds } from "./components/pages";
 
 export default function App() {
   const location = useLocation();
@@ -104,6 +104,7 @@ export default function App() {
         } />
         <Route path="/character/:characterName" element={<CharacterDetail />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/app-ads.txt" element={<AppAds />} />
       </Routes>
 
       {/* Premium Scroll to Top Button - Subtle, auto-hides near footer to prevent overlaps */}

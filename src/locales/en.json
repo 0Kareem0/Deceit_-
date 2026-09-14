@@ -607,5 +607,13 @@
         "email": "deceit2026@gmail.com"
       }
     }
+  },
+  "notFound": {
+    "title": "404 - Page Not Found | Deceit Online",
+    "heading": "Lost in the Shadows?",
+    "subtitle": "The page you are looking for has vanished into the deceitful fog or has been moved elsewhere.",
+    "backHome": "Back to Home",
+    "privacy": "Privacy & Security Log",
+    "badge": "ERROR 404 — PATH MISSING"
   }
 }

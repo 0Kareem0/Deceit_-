@@ -14,12 +14,13 @@ i18n
       ar: { translation: ar }
     },
     supportedLngs: ['en', 'ar'],
-    lng: undefined,
-    fallbackLng: 'en',
+    lng: (typeof window !== 'undefined' && localStorage.getItem('i18nextLng')) || 'ar',
+    fallbackLng: 'ar',
     load: 'languageOnly',
     detection: {
-      order: ['navigator', 'htmlTag', 'path', 'subdomain'],
-      caches: ['localStorageCache']
+      order: ['localStorage'],
+      caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng'
     },
     interpolation: {
       escapeValue: false

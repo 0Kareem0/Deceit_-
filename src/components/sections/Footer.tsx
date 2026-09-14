@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Music2 } from "lucide-react";
+import { Instagram, Facebook, Music2, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -43,7 +43,7 @@ export function Footer() {
               {t('footer.tagline')}
             </p>
 
-            {/* Social Icons */}
+            {/* Social Icons & Contact */}
             <div className="flex items-center gap-3 mt-5 sm:mt-7">
               <a
                 href="https://www.instagram.com/deceit.11?igsh=MXZneGMzMTJyd2p2bQ=="
@@ -79,6 +79,18 @@ export function Footer() {
                 className="group w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
               >
                 <Music2
+                  size={17}
+                  className="transition-transform duration-300 group-hover:scale-110"
+                />
+              </a>
+
+              <a
+                href="mailto:deceit2026@gmail.com"
+                aria-label="Gmail"
+                title="deceit2026@gmail.com"
+                className="group w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#8C82A0] transition-all duration-300 hover:-translate-y-1 hover:border-[#EA4335]/40 hover:bg-[#EA4335]/10 hover:text-[#EA4335]"
+              >
+                <Mail
                   size={17}
                   className="transition-transform duration-300 group-hover:scale-110"
                 />

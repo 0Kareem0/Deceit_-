@@ -20,11 +20,11 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
   return (
     <Link 
       to={`/character/${encodeURIComponent(item.name)}`}
-      className="group relative rounded-2xl border p-5 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden flex flex-col h-full cursor-pointer"
+      className="group relative rounded-2xl sm:rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.03] via-black/40 to-black/80 backdrop-blur-xl p-3.5 sm:p-5 overflow-hidden flex flex-col h-full cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37]/60 hover:shadow-[0_20px_50px_-15px_rgba(212,175,55,0.35)] active:scale-98"
       style={{ 
         borderColor: factionColor + "2A",
         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-        minHeight: "320px",
+        minHeight: "310px",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";

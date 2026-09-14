@@ -123,7 +123,6 @@ export function PrivacyPolicy() {
         description={t("privacy.subtitle")}
       />
 
-      <Header />
 
       {/* Decorative ambient lighting */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">

@@ -134,13 +134,16 @@ export function Header() {
               to="/"
               onClick={handleLogoClick}
               aria-label={t("nav.deceit")}
-              className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/50 bg-gradient-to-br from-[#D4AF37]/25 via-[#6B1B38]/30 to-black shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:border-[#F0D78C] group-hover:shadow-[0_0_30px_rgba(240,217,140,0.5)] sm:h-11 sm:w-11"
+              className="flex shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-105"
             >
-              <Crown className="h-5 w-5 text-[#F0D78C] transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6" />
-              <span className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-[#F0D78C]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <img
+                src={isArabic ? "/logoArabic.jpg" : "/logoEnglish.jpg"}
+                alt={t("nav.deceit")}
+                className="h-12 w-12 rounded-xl object-cover sm:h-16 sm:w-16"
+              />
             </Link>
 
-            <div className="flex min-w-0 flex-col">
+            <div className="flex min-w-0 flex-col justify-center">
               <Link
                 to="/"
                 onClick={handleLogoClick}

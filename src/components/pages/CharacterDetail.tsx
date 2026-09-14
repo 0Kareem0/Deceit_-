@@ -282,10 +282,12 @@ export function CharacterDetail() {
                 </div>
 
                 {/* Right: Character Image - Premium Frame */}
-                <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
-                  <div className="absolute inset-0 overflow-hidden"
+                <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] flex items-center justify-center p-4 sm:p-8">
+                  <div 
+                    className="relative w-full h-full max-h-[560px] flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-4 sm:p-6 backdrop-blur-md"
                     style={{
-                      borderLeft: `1px solid ${factionColor}15`,
+                      borderColor: `${factionColor}30`,
+                      boxShadow: `0 0 50px ${factionColor}15, inset 0 0 30px ${factionColor}10`,
                     }}
                   >
                     {character.image && imageStatus !== "error" ? (
@@ -297,25 +299,21 @@ export function CharacterDetail() {
                           decoding="async"
                           onLoad={() => setImageStatus("loaded")}
                           onError={() => setImageStatus("error")}
-                          className={`h-full w-full object-cover object-top transition-all duration-1000 ${
+                          className={`max-h-[500px] w-auto max-w-full object-contain rounded-xl shadow-2xl transition-all duration-700 ${
                             imageStatus === "loaded" ? "scale-100 opacity-100" : "scale-105 opacity-0"
                           }`}
                         />
-                        {/* Premium overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-transparent to-transparent" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10" />
-                        
-                        {/* Subtle vignette */}
+                        {/* Subtle ambient lighting behind card */}
                         <div
-                          className="absolute inset-0"
+                          className="absolute inset-0 pointer-events-none"
                           style={{
-                            background: "radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.5) 100%)",
+                            background: `radial-gradient(circle at center, ${factionColor}15, transparent 70%)`,
                           }}
                         />
                         
                         {/* Elegant character tag */}
                         <div className="absolute bottom-4 left-4 right-4">
-                          <div className="rounded-full border border-white/5 bg-black/40 px-3 py-1.5 text-[9px] uppercase tracking-[0.25em] text-white/30 backdrop-blur-sm text-center"
+                          <div className="rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-[9px] uppercase tracking-[0.25em] text-white/50 backdrop-blur-md text-center"
                             style={{ fontFamily: "'Cairo', sans-serif" }}
                           >
                             DECEIT • CHARACTER

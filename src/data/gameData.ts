@@ -15,7 +15,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "👑",
     name: "King",
     desc: "The king, the ruler of the kingdom and the most important character, must be protected at any cost.",
-    image: "/cards/deset_king.webp",
+    image: "/cards/deset_king.png",
     team: "Kingdom" as const,
     ability: "Has no special ability.",
     constraints: [
@@ -33,7 +33,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🤴",
     name: "Crown Prince",
     desc: "The heir to the throne, ready to take power when the king falls.",
-    image: "/cards/deset_crown_prince.webp",
+    image: "/cards/deset_crown_prince.png",
     team: "Kingdom" as const,
     ability: "If the king dies, the crown prince becomes the new king.",
     constraints: [
@@ -50,7 +50,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "📜",
     name: "Vizier",
     desc: "The king's closest advisor and holder of secret information.",
-    image: "/cards/deset_vizier.webp",
+    image: "/cards/deset_vizier.png",
     team: "Kingdom" as const,
     ability: "Gains accurate information about a randomly chosen player's team.",
     constraints: [
@@ -69,7 +69,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🛡️",
     name: "Guard",
     desc: "The guard, protects kingdom members from assassination attempts.",
-    image: "/cards/deset_guard.webp",
+    image: "/cards/deset_guard.png",
     team: "Kingdom" as const,
     ability: "Protects a player from the first direct killing attack during the night.",
     constraints: [
@@ -87,7 +87,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "💉",
     name: "Doctor",
     desc: "The doctor, treats the injured and tries to save them from death.",
-    image: "/cards/deset_physician.webp",
+    image: "/cards/deset_physician.png",
     team: "Kingdom" as const,
     ability: "Chooses a player each night to treat from treatable attacks.",
     constraints: [
@@ -103,7 +103,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🔎",
     name: "Investigator",
     desc: "The investigator, gathers information to uncover Shadow members.",
-    image: "/cards/deset_investigator.webp",
+    image: "/cards/deset_investigator.png",
     team: "Kingdom" as const,
     ability: "Gains accurate information about a player each night, unless the player is affected by the Forger's ability.",
     constraints: [
@@ -121,7 +121,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "⚖️",
     name: "Judge",
     desc: "The judge, has legal authority to intervene in voting decisions.",
-    image: "/cards/deset_judge.webp",
+    image: "/cards/deset_judge.png",
     team: "Kingdom" as const,
     ability: "Must use ability before voting result is finalized; when activated, voting is canceled and no player is eliminated.",
     constraints: [
@@ -139,7 +139,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "⚔️",
     name: "Knight",
     desc: "The knight, a brave warrior defending the kingdom with strength.",
-    image: "/cards/deset_knight.webp",
+    image: "/cards/deset_knight.png",
     team: "Kingdom" as const,
     ability: "Has a shield that protects himself or another player from a direct killing attack.",
     constraints: [
@@ -157,7 +157,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🏰",
     name: "Royal Guard",
     desc: "Personal guard for the king, protects royal family members.",
-    image: "/cards/deset_royal_guard.webp",
+    image: "/cards/deset_royal_guard.png",
     team: "Kingdom" as const,
     ability: "Protects the king and crown prince from direct killing attacks.",
     constraints: [
@@ -174,7 +174,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🙏",
     name: "Priest",
     desc: "Guides people and performs religious rituals.",
-    image: "/cards/deset_priest.webp",
+    image: "/cards/deset_priest.png",
     team: "Kingdom" as const,
     ability: "Can determine if a player has been converted to another team.",
     constraints: [
@@ -192,7 +192,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "📬",
     name: "Messenger",
     desc: "Delivers secret messages and communications between parties.",
-    image: "/cards/deset_messenger.webp",
+    image: "/cards/deset_messenger.png",
     team: "Kingdom" as const,
     ability: "Can send a secret message to one player each night.",
     constraints: [
@@ -208,7 +208,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🧙",
     name: "Wizard",
     desc: "Possesses magical knowledge and mysterious abilities.",
-    image: "/cards/deset_wizard.webp",
+    image: "/cards/deset_wizard.png",
     team: "Kingdom" as const,
     ability: "Can silence one player each night, preventing them from using their ability.",
     constraints: [
@@ -225,7 +225,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "👤",
     name: "Citizen",
     desc: "Ordinary kingdom inhabitant with no special abilities.",
-    image: "/cards/deset_citizen.webp",
+    image: "/cards/deset_citizen.png",
     team: "Kingdom" as const,
     ability: "Has no special abilities; relies on voting.",
     constraints: [
@@ -239,7 +239,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "👑",
     name: "Shadow Leader",
     desc: "Proposes the main night kill target and guides Shadows toward the appropriate victim.",
-    image: "/cards/deset_shadow_leader.webp",
+    image: "/cards/deset_shadow_leader.png",
     team: "Shadows" as const,
     ability: "Proposes the main night kill target.",
     constraints: [
@@ -255,7 +255,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🗡️",
     name: "Assassin",
     desc: "Has the final decision to execute the main kill chosen by the Shadows.",
-    image: "/cards/deset_assassin.webp",
+    image: "/cards/deset_assassin.png",
     team: "Shadows" as const,
     ability: "Executes the main kill chosen by the Shadows.",
     constraints: [
@@ -271,7 +271,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🕵️",
     name: "Spy",
     desc: "Monitors a specific player and reveals interactions during the night.",
-    image: "/cards/deset_spy.webp",
+    image: "/cards/deset_spy.png",
     team: "Shadows" as const,
     ability: "Monitors a player and knows who interacts with them during the night.",
     constraints: [
@@ -287,7 +287,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "☠️",
     name: "Poisoner",
     desc: "Poisons a player who will die later unless treated.",
-    image: "/cards/deset_poisoner.webp",
+    image: "/cards/deset_poisoner.png",
     team: "Shadows" as const,
     ability: "Poisons one player each night; the target dies after two nights if untreated.",
     constraints: [
@@ -300,7 +300,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🔧",
     name: "Saboteur",
     desc: "Disables another player's ability for the night.",
-    image: "/cards/deset_saboteur.webp",
+    image: "/cards/deset_saboteur.png",
     team: "Shadows" as const,
     ability: "Disables one player's ability each night.",
     constraints: [
@@ -317,7 +317,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🎭",
     name: "Forger",
     desc: "Corrupts investigation results, making truth appear false.",
-    image: "/cards/deset_forger.webp",
+    image: "/cards/deset_forger.png",
     team: "Shadows" as const,
     ability: "Chooses a player each night to corrupt investigation results against them.",
     constraints: [
@@ -334,7 +334,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🎭",
     name: "Impersonator",
     desc: "Copies another player's ability to use for one night.",
-    image: "/cards/deset_impersonator.webp",
+    image: "/cards/deset_impersonator.png",
     team: "Shadows" as const,
     ability: "Copies another player's ability and uses it for one night.",
     constraints: [
@@ -351,7 +351,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🩸",
     name: "Slasher",
     desc: "Chooses a player each night to kill; if successful, the target dies normally, otherwise the ability is on cooldown for one night.",
-    image: "/cards/deset_slasher.webp",
+    image: "/cards/deset_slasher.png",
     team: "Shadows" as const,
     ability: "Kills a player directly each night.",
     constraints: [
@@ -368,7 +368,7 @@ export const DETAILED_ROLES: Record<string, DetailedRole> = {
     icon: "🎪",
     name: "Trickster",
     desc: "Manipulates players to create suspicion; wins by being voted out.",
-    image: "/cards/deset_trickster.webp",
+    image: "/cards/deset_trickster.png",
     team: "Neutral" as const,
     ability: "Has no direct night ability; relies on manipulation and deception to get voted out.",
     constraints: [
@@ -387,34 +387,34 @@ export type Role = { icon: string; name: string; desc: string; image?: string };
 export type Character = Role & { faction: string; color: string };
 
 export const SHADOW_ROLES: Role[] = [
-  { icon: "👑", name: "Shadow Leader", desc: "Proposes the main night kill target and guides Shadows toward the appropriate victim.", image: "/cards/deset_shadow_leader.webp" },
-  { icon: "🗡️", name: "Assassin", desc: "Has the final decision to execute the main kill chosen by the Shadows.", image: "/cards/deset_assassin.webp" },
-  { icon: "🕵️", name: "Spy", desc: "Monitors a specific player and reveals interactions during the night. Helps in knowing who moves and active players.", image: "/cards/deset_spy.webp" },
-  { icon: "☠️", name: "Poisoner", desc: "Poisons a player who will die later unless treated. Works slowly, making it a deceptive killer.", image: "/cards/deset_poisoner.webp" },
-  { icon: "🔧", name: "Saboteur", desc: "Disables another player's ability for the night. Excellent for stopping protection or investigation.", image: "/cards/deset_saboteur.webp" },
-  { icon: "🎭", name: "Forger", desc: "Corrupts investigation results, turning truth upside down. Makes investigators see false information.", image: "/cards/deset_forger.webp" },
-  { icon: "🎭", name: "Impersonator", desc: "Copies another player's ability to use for one night only. Allows temporary use of any ability.", image: "/cards/deset_impersonator.webp" },
-  { icon: "🩸", name: "Slasher", desc: "Chooses a player each night to kill. If successful, the target dies normally. If failed, Slasher's ability enters a one-night cooldown.", image: "/cards/deset_slasher.webp" }
+  { icon: "👑", name: "Shadow Leader", desc: "Proposes the main night kill target and guides Shadows toward the appropriate victim.", image: "/cards/deset_shadow_leader.png" },
+  { icon: "🗡️", name: "Assassin", desc: "Has the final decision to execute the main kill chosen by the Shadows.", image: "/cards/deset_assassin.png" },
+  { icon: "🕵️", name: "Spy", desc: "Monitors a specific player and reveals interactions during the night. Helps in knowing who moves and active players.", image: "/cards/deset_spy.png" },
+  { icon: "☠️", name: "Poisoner", desc: "Poisons a player who will die later unless treated. Works slowly, making it a deceptive killer.", image: "/cards/deset_poisoner.png" },
+  { icon: "🔧", name: "Saboteur", desc: "Disables another player's ability for the night. Excellent for stopping protection or investigation.", image: "/cards/deset_saboteur.png" },
+  { icon: "🎭", name: "Forger", desc: "Corrupts investigation results, turning truth upside down. Makes investigators see false information.", image: "/cards/deset_forger.png" },
+  { icon: "🎭", name: "Impersonator", desc: "Copies another player's ability to use for one night only. Allows temporary use of any ability.", image: "/cards/deset_impersonator.png" },
+  { icon: "🩸", name: "Slasher", desc: "Chooses a player each night to kill. If successful, the target dies normally. If failed, Slasher's ability enters a one-night cooldown.", image: "/cards/deset_slasher.png" }
 ];
 
 export const KINGDOM_ROLES: Role[] = [
-  { icon: "👑", name: "King", desc: "King, the ruler of the kingdom, decisions determine everyone's fate. Important and influential leadership role.", image: "/cards/deset_king.webp" },
-  { icon: "🛡️", name: "Guard", desc: "Protects one player from any attack during the night. Basic defensive role for the kingdom.", image: "/cards/deset_guard.webp" },
-  { icon: "💉", name: "Doctor", desc: "Treats players who are injured or at risk of death. Essential for countering poison and killing abilities.", image: "/cards/deset_physician.webp" },
-  { icon: "🔎", name: "Investigator", desc: "Gathers information to reveal a player's true role. Helps discover Shadows.", image: "/cards/deset_investigator.webp" },
-  { icon: "⚔️", name: "Knight", desc: "Brave warrior defending the kingdom with strength. Possesses combat abilities and protective skills.", image: "/cards/deset_knight.webp" },
-  { icon: "🏰", name: "Royal Guard", desc: "Personal guard for the king, protects royal family members.", image: "/cards/deset_royal_guard.webp" },
-  { icon: "⚖️", name: "Judge", desc: "Judges disputes and decides fate. Plays a crucial role in pivotal decisions.", image: "/cards/deset_judge.webp" },
-  { icon: "📜", name: "Vizier", desc: "King's advisor, manages kingdom affairs. Holds great influence and knowledge.", image: "/cards/deset_vizier.webp" },
-  { icon: "🙏", name: "Priest", desc: "Guides people and performs religious rituals. May have spiritual abilities or special knowledge.", image: "/cards/deset_priest.webp" },
-  { icon: "📬", name: "Messenger", desc: "Transmits messages and secret communications between parties. Important for coordination and secret communication.", image: "/cards/deset_messenger.webp" },
-  { icon: "🧙", name: "Wizard", desc: "Possesses magical knowledge and mysterious abilities. Has a unique ability that can change the game's course.", image: "/cards/deset_wizard.webp" },
-  { icon: "👤", name: "Citizen", desc: "Ordinary kingdom inhabitant. No special abilities, but vote is important in voting.", image: "/cards/deset_citizen.webp" },
-  { icon: "🤴", name: "Crown Prince", desc: "Heir to the throne, ready to take power when the king falls.", image: "/cards/deset_crown_prince.webp" },
+  { icon: "👑", name: "King", desc: "King, the ruler of the kingdom, decisions determine everyone's fate. Important and influential leadership role.", image: "/cards/deset_king.png" },
+  { icon: "🛡️", name: "Guard", desc: "Protects one player from any attack during the night. Basic defensive role for the kingdom.", image: "/cards/deset_guard.png" },
+  { icon: "💉", name: "Doctor", desc: "Treats players who are injured or at risk of death. Essential for countering poison and killing abilities.", image: "/cards/deset_physician.png" },
+  { icon: "🔎", name: "Investigator", desc: "Gathers information to reveal a player's true role. Helps discover Shadows.", image: "/cards/deset_investigator.png" },
+  { icon: "⚔️", name: "Knight", desc: "Brave warrior defending the kingdom with strength. Possesses combat abilities and protective skills.", image: "/cards/deset_knight.png" },
+  { icon: "🏰", name: "Royal Guard", desc: "Personal guard for the king, protects royal family members.", image: "/cards/deset_royal_guard.png" },
+  { icon: "⚖️", name: "Judge", desc: "Judges disputes and decides fate. Plays a crucial role in pivotal decisions.", image: "/cards/deset_judge.png" },
+  { icon: "📜", name: "Vizier", desc: "King's advisor, manages kingdom affairs. Holds great influence and knowledge.", image: "/cards/deset_vizier.png" },
+  { icon: "🙏", name: "Priest", desc: "Guides people and performs religious rituals. May have spiritual abilities or special knowledge.", image: "/cards/deset_priest.png" },
+  { icon: "📬", name: "Messenger", desc: "Transmits messages and secret communications between parties. Important for coordination and secret communication.", image: "/cards/deset_messenger.png" },
+  { icon: "🧙", name: "Wizard", desc: "Possesses magical knowledge and mysterious abilities. Has a unique ability that can change the game's course.", image: "/cards/deset_wizard.png" },
+  { icon: "👤", name: "Citizen", desc: "Ordinary kingdom inhabitant. No special abilities, but vote is important in voting.", image: "/cards/deset_citizen.png" },
+  { icon: "🤴", name: "Crown Prince", desc: "Heir to the throne, ready to take power when the king falls.", image: "/cards/deset_crown_prince.png" },
 ];
 
 export const NEUTRAL_ROLES: Role[] = [
-  { icon: "🎪", name: "Trickster", desc: "A character who tries to convince players they are a threat or part of an opposing team, until eliminated by vote.", image: "/cards/deset_trickster.webp" }
+  { icon: "🎪", name: "Trickster", desc: "A character who tries to convince players they are a threat or part of an opposing team, until eliminated by vote.", image: "/cards/deset_trickster.png" }
 ];
 
 export const INTERACTIONS: { key: string; title: string; steps: string[] }[] = [

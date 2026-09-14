@@ -43,7 +43,13 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
       />
       
       {/* Image container with hover effect */}
-      <div className="relative w-full aspect-[3/4] rounded-xl mb-4 overflow-hidden">
+      <div 
+        className="relative w-full aspect-[3/4] rounded-xl mb-4 overflow-hidden flex items-center justify-center bg-black/40"
+        style={{
+          border: `1px solid ${factionColor}30`,
+          boxShadow: `inset 0 0 20px ${factionColor}15`,
+        }}
+      >
         {item.image && imageStatus !== "error" ? (
           <>
             <img
@@ -53,12 +59,9 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
               decoding="async"
               onLoad={() => setImageStatus("loaded")}
               onError={handleImageError}
-              className={`w-full h-full object-cover origin-top transition-[opacity,transform] duration-500 ease-out group-hover:scale-110 ${
+              className={`w-full h-full object-contain transition-[opacity,transform] duration-500 ease-out group-hover:scale-105 ${
                 imageStatus === "loaded" ? "opacity-100" : "opacity-0"
               }`}
-              style={{
-                border: `1px solid ${factionColor}40`,
-              }}
             />
             {imageStatus === "loading" && (
               <div
@@ -74,11 +77,11 @@ export function CharacterCard({ item, factionColor }: CharacterCardProps) {
                 <span style={{ fontFamily: "'Tajawal', sans-serif" }}>{t('character.loadingImage')}</span>
               </div>
             )}
-            {/* Gradient overlay on hover */}
+            {/* Subtle glow overlay on hover */}
             <div 
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
               style={{
-                background: `linear-gradient(to top, ${factionColor}30, transparent)`,
+                background: `radial-gradient(circle at center, ${factionColor}20, transparent 75%)`,
               }}
             />
           </>

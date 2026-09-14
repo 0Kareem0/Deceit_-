@@ -14,23 +14,9 @@ export function Hero() {
       {/* Subtle Elegant Starfield Background */}
       <Starfield count={80} />
 
-      {/* Strong Soft Radial Gold Ambient Aura behind Title */}
+      {/* Subtle Vignette Overlay for Title Focus */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Soft Background Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#050508_95%)]" />
-
-        {/* Multi-layered Specular Gold Glow Aura */}
-        <div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] sm:w-[750px] sm:h-[750px] rounded-full blur-[140px] opacity-60"
-          style={{
-            background: "radial-gradient(circle, rgba(250,230,165,0.45) 0%, rgba(212,175,55,0.25) 35%, rgba(107,27,56,0.15) 65%, transparent 80%)",
-            animation: "crescentGlow 6s ease-in-out infinite",
-          }}
-        />
-
-        {/* Ambient Corner Depth Orbs */}
-        <div className="absolute -top-30 -left-30 w-96 h-96 rounded-full bg-[#6B1B38]/15 blur-[150px]" />
-        <div className="absolute -top-30 -right-30 w-96 h-96 rounded-full bg-[#D4AF37]/15 blur-[150px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,#050308_90%)]" />
       </div>
 
       {/* Top Badge: Thin, Elegant Glass Pill with Soft Gold Border */}

@@ -1,12 +1,14 @@
 import { Reveal, Eyebrow } from "../ui";
 import { useTranslation } from "react-i18next";
+import { Crown, Moon, Scale } from "lucide-react";
 
 export function Goals() {
   const { t } = useTranslation();
+
   const goals = [
-    { key: "kingdom", icon: "👑", color: "#C6A369" },
-    { key: "shadows", icon: "🌑", color: "#9C3357" },
-    { key: "neutral", icon: "❔", color: "#8C82A0" },
+    { key: "kingdom", icon: Crown, color: "#C6A369" },
+    { key: "shadows", icon: Moon, color: "#9C3357" },
+    { key: "neutral", icon: Scale, color: "#8C82A0" },
   ];
 
   return (
@@ -22,31 +24,35 @@ export function Goals() {
       </Reveal>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {goals.map((g, i) => (
-          <Reveal key={g.key} delay={i * 120}>
-            <div
-              className="h-full rounded-2xl p-6 sm:p-8 text-center border border-white/[0.07] bg-white/[0.015] transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] hover:border-white/[0.15]"
-            >
+        {goals.map((g, i) => {
+          const Icon = g.icon;
+          return (
+            <Reveal key={g.key} delay={i * 120}>
               <div
-                className="text-3xl sm:text-4xl mb-4 transition-transform duration-300 hover:scale-110"
+                className="h-full rounded-2xl p-6 sm:p-8 text-center border border-white/[0.07] bg-white/[0.015] transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] hover:border-white/[0.15]"
               >
-                {g.icon}
+                <div
+                  className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-xl bg-white/[0.03] transition-transform duration-300 hover:scale-110"
+                  style={{ color: g.color }}
+                >
+                  <Icon size={28} />
+                </div>
+                <h3
+                  className="text-lg sm:text-xl font-bold mb-2 transition-colors duration-300"
+                  style={{ color: g.color, fontFamily: "'Cairo', sans-serif" }}
+                >
+                  {t(`goals.${g.key}.title`)}
+                </h3>
+                <p
+                  className="text-xs sm:text-sm text-[#9C8FA8] leading-relaxed transition-colors duration-300 hover:text-[#EAE2D2]"
+                  style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                >
+                  {t(`goals.${g.key}.description`)}
+                </p>
               </div>
-              <h3
-                className="text-lg sm:text-xl font-bold mb-2 transition-colors duration-300"
-                style={{ color: g.color, fontFamily: "'Cairo', sans-serif" }}
-              >
-                {t(`goals.${g.key}.title`)}
-              </h3>
-              <p
-                className="text-xs sm:text-sm text-[#9C8FA8] leading-relaxed transition-colors duration-300 hover:text-[#EAE2D2]"
-                style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
-              >
-                {t(`goals.${g.key}.description`)}
-              </p>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );

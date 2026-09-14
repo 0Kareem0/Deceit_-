@@ -84,7 +84,7 @@ export default function App() {
   return (
     <div
       id="top"
-      className="relative min-h-screen bg-[#050308] text-[#EAE2D2] overflow-x-hidden selection:bg-[#C6A369]/30"
+      className="relative min-h-screen bg-[#050308] text-[#EAE2D2] overflow-x-clip selection:bg-[#C6A369]/30"
     >
       <Analytics />
       <BackgroundEffects />

@@ -26,6 +26,7 @@ import {
   Server,
   Trash2,
   Sparkles,
+  ListFilter,
 } from "lucide-react";
 import { SEO } from "../ui/SEO";
 import { Header } from "../sections/Header";
@@ -42,12 +43,6 @@ export function PrivacyPolicy() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("deceit2026@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
-
   const navItems = [
     { id: "s1", label: isArabic ? "1. البيانات المجمعة" : "1. Data Collected" },
     { id: "s2", label: isArabic ? "2. أغراض المعالجة" : "2. Purposes" },
@@ -61,11 +56,37 @@ export function PrivacyPolicy() {
     { id: "s10", label: isArabic ? "10. تواصل معنا" : "10. Contact Us" },
   ];
 
+  // Dynamically update active section chip while scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + 160;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navItems[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isArabic]);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("deceit2026@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   const scrollToSection = (id: string) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100;
+      const isMobile = window.innerWidth < 640;
+      const offset = isMobile ? 125 : 145;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -160,27 +181,28 @@ export function PrivacyPolicy() {
           </p>
         </header>
 
-        {/* Quick Section Navigation Chips */}
+        {/* Quick Section Navigation Chips - Sticky Toolbar */}
         <nav
           aria-label="Privacy policy quick navigation"
-          className="mb-12 sticky top-20 z-30 py-3 bg-[#050308]/85 backdrop-blur-xl border-y border-white/[0.08]"
+          className="mb-12 sticky top-16 sm:top-20 z-40 py-3 bg-[#050308]/95 backdrop-blur-xl border-y border-[#C6A369]/25 shadow-[0_10px_30px_rgba(0,0,0,0.85)] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 transition-all duration-300"
         >
-          <div className="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-3 px-1">
+          <div className="flex items-center gap-2 overflow-x-auto custom-scrollbar py-1 px-1">
             <span
-              className="text-xs text-[#8C82A0] whitespace-nowrap hidden sm:inline-block font-semibold px-2"
+              className="text-xs text-[#C6A369] whitespace-nowrap font-bold px-2 flex items-center gap-1.5 shrink-0"
               style={{ fontFamily: "'Cairo', sans-serif" }}
             >
-              {t("privacy.quickNavTitle")}:
+              <ListFilter className="w-3.5 h-3.5 text-[#C6A369]" />
+              <span>{t("privacy.quickNavTitle")}:</span>
             </span>
             {navItems.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => scrollToSection(item.id)}
-                className={`whitespace-nowrap rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all duration-300 ${
+                className={`whitespace-nowrap rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all duration-300 shrink-0 ${
                   activeSection === item.id
-                    ? "bg-gradient-to-r from-[#C6A369] to-[#8B6914] text-[#050308] shadow-[0_0_15px_rgba(198,163,105,0.4)]"
-                    : "border border-white/10 bg-white/[0.03] text-[#8C82A0] hover:border-[#C6A369]/40 hover:text-[#EAE2D2] hover:bg-white/[0.06]"
+                    ? "bg-gradient-to-r from-[#C6A369] to-[#8B6914] text-[#050308] shadow-[0_0_15px_rgba(198,163,105,0.5)] scale-105"
+                    : "border border-white/10 bg-white/[0.04] text-[#8C82A0] hover:border-[#C6A369]/50 hover:text-[#EAE2D2] hover:bg-white/[0.08]"
                 }`}
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >

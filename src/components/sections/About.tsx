@@ -1,6 +1,6 @@
 import { Reveal, Eyebrow } from "../ui";
 import { useTranslation } from "react-i18next";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Lightbulb } from "lucide-react";
 
 export function About() {
   const { t, i18n } = useTranslation();
@@ -83,16 +83,38 @@ export function About() {
         </div>
       </div>
 
-      {/* Tip Banner */}
+      {/* Premium Tip Banner */}
       <Reveal delay={450}>
-        <div className="mt-14 rounded-2xl p-6 sm:p-8 border border-white/10 bg-gradient-to-r from-white/[0.02] via-[#C6A369]/[0.05] to-white/[0.02] text-center relative overflow-hidden backdrop-blur-md">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C6A369]/15 border border-[#C6A369]/30 text-xs font-bold text-[#EAD6A8] mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#C6A369]" />
+        <div className="mt-16 sm:mt-20 relative max-w-4xl mx-auto rounded-2xl p-6 sm:p-8 border border-[#C6A369]/30 bg-gradient-to-r from-[#050308] via-[#1A1208] to-[#050308] text-center overflow-hidden backdrop-blur-xl shadow-[0_0_40px_rgba(198,163,105,0.12)] hover:border-[#C6A369]/60 hover:shadow-[0_0_50px_rgba(198,163,105,0.25)] transition-all duration-500 group">
+          {/* Ambient Lighting & Top/Bottom Hairline Glow Effects */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#C6A369]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C6A369] to-transparent opacity-60" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#C6A369]/40 to-transparent opacity-40" />
+
+          {/* Faded Background Lightbulb Icon */}
+          <Lightbulb className="absolute -right-4 -bottom-4 rtl:left-4 rtl:right-auto w-32 h-32 text-[#C6A369]/[0.05] group-hover:text-[#C6A369]/[0.10] transition-colors duration-500 pointer-events-none select-none" />
+
+          {/* Header Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#C6A369]/20 via-[#6B1B38]/30 to-[#C6A369]/20 border border-[#C6A369]/40 text-xs font-extrabold text-[#EAD6A8] mb-4 shadow-[0_0_15px_rgba(198,163,105,0.2)]">
+            <Sparkles className="w-4 h-4 text-[#C6A369] animate-pulse" />
+            <span style={{ fontFamily: "'Tajawal', sans-serif" }}>
+              {isArabic ? "نصيحة ذهبية" : "GOLDEN TIP"}
+            </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#EAE2D2]" style={{ fontFamily: "'Cairo', sans-serif" }}>
+
+          {/* Title */}
+          <h3
+            className="text-xl sm:text-2xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#EAD6A8] via-[#C6A369] to-[#EAD6A8]"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
+          >
             {t('about.tip.title')}
           </h3>
-          <p className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+
+          {/* Description */}
+          <p
+            className="text-sm sm:text-base text-[#9C8FA8] group-hover:text-[#EAE2D2] transition-colors duration-300 leading-relaxed max-w-2xl mx-auto"
+            style={{ fontFamily: "'Tajawal', sans-serif" }}
+          >
             {t('about.tip.description')}
           </p>
         </div>

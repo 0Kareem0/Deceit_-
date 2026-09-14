@@ -1,65 +1,98 @@
 import { Reveal, Eyebrow } from "../ui";
 import { useTranslation } from "react-i18next";
+import { Sparkles } from "lucide-react";
 
 export function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
+
+  const steps = [
+    {
+      num: isArabic ? "١" : "1",
+      titleKey: "about.step1.title",
+      descKey: "about.step1.description",
+    },
+    {
+      num: isArabic ? "٢" : "2",
+      titleKey: "about.step2.title",
+      descKey: "about.step2.description",
+    },
+    {
+      num: isArabic ? "٣" : "3",
+      titleKey: "about.step3.title",
+      descKey: "about.step3.description",
+    },
+  ];
 
   return (
-    <section id="about" className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-28 scroll-mt-16">
-      {/* Background overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050308]/20 via-transparent to-[#050308]/20 pointer-events-none rounded-3xl" />
-      <Reveal className="text-center mb-14 relative">
+    <section id="about" className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32 scroll-mt-16">
+      {/* Background ambient light */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050308]/30 via-[#C6A369]/[0.02] to-[#050308]/30 pointer-events-none rounded-3xl" />
+
+      <Reveal className="text-center mb-16 sm:mb-20 relative">
         <Eyebrow>{t('about.howToPlay')}</Eyebrow>
-        <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold" style={{ fontFamily: "'Cairo', sans-serif" }}>
+        <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#EAD6A8] via-[#C6A369] to-[#8B6914] bg-clip-text text-transparent" style={{ fontFamily: "'Cairo', sans-serif" }}>
           {t('about.learnBasics')}
         </h2>
-        <p className="mt-5 max-w-3xl mx-auto text-[#9C8FA8] leading-relaxed" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+        <p className="mt-5 max-w-3xl mx-auto text-[#9C8FA8] leading-relaxed text-sm sm:text-base" style={{ fontFamily: "'Tajawal', sans-serif" }}>
           {t('about.gameDescription')}
         </p>
       </Reveal>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-        <Reveal delay={0}>
-          <div
-            className="h-full rounded-2xl p-6 sm:p-8 border border-[#C6A369]/20 bg-gradient-to-b from-[#C6A369]/[0.05] to-transparent shadow-[0_20px_60px_-30px_rgba(198,163,105,0.35)] transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_70px_-20px_rgba(198,163,105,0.5)] hover:border-[#C6A369]/40 relative"
-          >
-            <div className="text-4xl sm:text-5xl mb-4 transition-transform duration-300 hover:scale-110">1️⃣</div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-300 hover:text-[#C6A369]" style={{ fontFamily: "'Aref Ruqaa', serif" }}>{t('about.step1.title')}</h3>
-            <p className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed transition-colors duration-300 hover:text-[#EAE2D2]" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
-              {t('about.step1.description')}
-            </p>
-          </div>
-        </Reveal>
+      {/* Connected Stepper Flow */}
+      <div className="relative max-w-5xl mx-auto">
+        {/* Horizontal Line connecting steps on Desktop */}
+        <div className="hidden lg:block absolute top-7 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-[#C6A369]/20 via-[#C6A369]/70 to-[#C6A369]/20 z-0" />
 
-        <Reveal delay={150}>
-          <div
-            className="h-full rounded-2xl p-6 sm:p-8 border border-[#9C3357]/25 bg-gradient-to-b from-[#9C3357]/[0.07] to-transparent shadow-[0_20px_60px_-30px_rgba(156,51,87,0.4)] transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_70px_-20px_rgba(156,51,87,0.6)] hover:border-[#9C3357]/50 relative"
-          >
-            <div className="text-4xl sm:text-5xl mb-4 transition-transform duration-300 hover:scale-110">2️⃣</div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-300 hover:text-[#9C3357]" style={{ fontFamily: "'Aref Ruqaa', serif" }}>{t('about.step2.title')}</h3>
-            <p className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed transition-colors duration-300 hover:text-[#EAE2D2]" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
-              {t('about.step2.description')}
-            </p>
-          </div>
-        </Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 relative z-10">
+          {steps.map((item, index) => (
+            <Reveal key={index} delay={index * 150}>
+              <div className="flex flex-col items-center text-center group h-full">
+                {/* Circular Number Badge Node */}
+                <div className="relative mb-6">
+                  {/* Outer Glow Ring */}
+                  <div className="absolute -inset-2 rounded-full bg-[#C6A369]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        <Reveal delay={300}>
-          <div className="h-full rounded-2xl p-6 sm:p-8 border border-[#8C82A0]/25 bg-gradient-to-b from-[#8C82A0]/[0.07] to-transparent shadow-[0_20px_60px_-30px_rgba(140,130,160,0.4)] transition-all duration-500 hover:scale-105 hover:shadow-[0_25px_70px_-20px_rgba(140,130,160,0.6)] hover:border-[#8C82A0]/50 relative">
-            <div className="text-4xl sm:text-5xl mb-4 transition-transform duration-300 hover:scale-110">3️⃣</div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-300 hover:text-[#EAE2D2]" style={{ fontFamily: "'Aref Ruqaa', serif" }}>{t('about.step3.title')}</h3>
-            <p className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed transition-colors duration-300 hover:text-[#EAE2D2]" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
-              {t('about.step3.description')}
-            </p>
-          </div>
-        </Reveal>
+                  <div
+                    className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#050308] border-2 border-[#C6A369]/60 group-hover:border-[#C6A369] group-hover:scale-110 shadow-[0_0_20px_rgba(198,163,105,0.25)] group-hover:shadow-[0_0_30px_rgba(198,163,105,0.6)] text-[#EAD6A8] font-bold text-xl sm:text-2xl flex items-center justify-center transition-all duration-500"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    {item.num}
+                  </div>
+                </div>
+
+                {/* Card Container */}
+                <div className="flex-1 w-full rounded-2xl p-6 sm:p-7 border border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 group-hover:border-[#C6A369]/40 group-hover:bg-white/[0.04] group-hover:shadow-[0_15px_35px_-15px_rgba(198,163,105,0.3)] flex flex-col justify-start">
+                  <h3
+                    className="text-lg sm:text-xl font-bold mb-3 text-white group-hover:text-[#EAD6A8] transition-colors duration-300"
+                    style={{ fontFamily: "'Aref Ruqaa', serif" }}
+                  >
+                    {t(item.titleKey)}
+                  </h3>
+
+                  <p
+                    className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed group-hover:text-[#EAE2D2] transition-colors duration-300"
+                    style={{ fontFamily: "'Tajawal', sans-serif" }}
+                  >
+                    {t(item.descKey)}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
 
-      <Reveal delay={400}>
-        <div className="mt-12 rounded-2xl p-8 border border-white/[0.07] bg-white/[0.015] text-center">
-          <h3 className="text-xl font-bold mb-4 text-[#EAE2D2]" style={{ fontFamily: "'Cairo', sans-serif" }}>
+      {/* Tip Banner */}
+      <Reveal delay={450}>
+        <div className="mt-14 rounded-2xl p-6 sm:p-8 border border-white/10 bg-gradient-to-r from-white/[0.02] via-[#C6A369]/[0.05] to-white/[0.02] text-center relative overflow-hidden backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C6A369]/15 border border-[#C6A369]/30 text-xs font-bold text-[#EAD6A8] mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-[#C6A369]" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#EAE2D2]" style={{ fontFamily: "'Cairo', sans-serif" }}>
             {t('about.tip.title')}
           </h3>
-          <p className="text-[#9C8FA8] leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+          <p className="text-sm sm:text-base text-[#9C8FA8] leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: "'Tajawal', sans-serif" }}>
             {t('about.tip.description')}
           </p>
         </div>

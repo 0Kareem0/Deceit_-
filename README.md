@@ -2,12 +2,12 @@
 
 <div align="center">
 
-  <h1>🌐 <a href="https://deceit.com">deceit.com</a></h1>
+  <h1>🌐 <a href="https://deceit.online">deceit.online</a></h1>
 
   <p><b>الموقع الرسمي للعبة الخداع الاجتماعي والأدوار المخفية — Deceit Official Website</b></p>
 
   <p>
-    <a href="https://deceit.com"><img src="https://img.shields.io/badge/Website-deceit.com-e11d48?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website deceit.com" /></a>
+    <a href="https://deceit.online"><img src="https://img.shields.io/badge/Website-deceit.online-e11d48?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website deceit.online" /></a>
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" /></a>
     <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.5.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-3.4.4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
@@ -22,7 +22,7 @@
 ## 🔗 الرابط الرسمي | Official Live Site
 
 موقع اللعبة متاح ومباشر الآن عبر الرابط:  
-👉 **[https://deceit.com](https://deceit.com)** 👈
+👉 **[https://deceit.online](https://deceit.online)** 👈
 
 ---
 
@@ -34,7 +34,7 @@
 
 ## ✨ Features | المميزات الرئيسية
 
-- 🌐 **الموقع الرسمي**: متوفر مباشرة على **[deceit.com](https://deceit.com)**.
+- 🌐 **الموقع الرسمي**: متوفر مباشرة على **[deceit.online](https://deceit.online)**.
 - 👑 **فريقان متصارعان (Kingdom vs. Shadows)**: 
   - **المملكة (The Kingdom)**: الحكام، الحراس، والأطباء الذين يدافعون عن الشرعية.
   - **الظلال (The Shadows)**: القتلة والمخادعون الذين يعملون في الخفاء.
@@ -152,7 +152,7 @@ deceit-site/
 
 <div align="center">
 
-🌐 **الموقع الرسمي**: [deceit.com](https://deceit.com)  
+🌐 **الموقع الرسمي**: [deceit.online](https://deceit.online)  
 **صُنع بـ ❤️ بواسطة فريق ديسيت**
 
 [⬆ العودة للأعلى](#-ديسيت--deceit-online)

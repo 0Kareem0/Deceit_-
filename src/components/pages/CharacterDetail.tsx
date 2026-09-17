@@ -96,13 +96,7 @@ export function CharacterDetail() {
   };
 
   const handleBack = () => {
-    navigate("/");
-    setTimeout(() => {
-      const rolesSection = document.getElementById("roles");
-      if (rolesSection) {
-        rolesSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
+    navigate("/#roles");
   };
 
   return (

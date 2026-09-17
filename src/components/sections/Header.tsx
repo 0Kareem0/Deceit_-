@@ -68,16 +68,7 @@ export function Header() {
   };
 
   const handleBack = () => {
-    navigate("/");
-    setTimeout(() => {
-      const rolesSection = document.getElementById("roles");
-      if (rolesSection) {
-        rolesSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 100);
+    navigate("/#roles");
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {

@@ -66,24 +66,23 @@ export default function App() {
     });
   };
 
-  // Scroll to top on pathname changes (route changes)
+  // Handle route changes and hash scrolling (#roles, #about, etc.)
   useEffect(() => {
-    if (!location.hash) {
+    if (location.pathname === '/' && location.hash) {
+      const scrollToHash = () => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      scrollToHash();
+      const timer = setTimeout(scrollToHash, 80);
+      return () => clearTimeout(timer);
+    } else if (!location.hash) {
       window.scrollTo(0, 0);
     }
-  }, [location.pathname]);
-
-  useEffect(() => {
-    // Handle hash scrolling when navigating to home page with hash
-    if (location.pathname === '/' && location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }, [location]);
+  }, [location.pathname, location.hash]);
 
   // Update HTML lang and dir based on current language
   useEffect(() => {

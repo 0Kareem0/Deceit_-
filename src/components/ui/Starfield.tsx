@@ -37,6 +37,9 @@ export function Starfield({ count = 85 }: { count?: number }) {
             height: `${s.size}px`,
             backgroundColor: s.color,
             animation: `${s.animName} ${s.dur}s ease-in-out ${s.delay}s infinite`,
+            willChange: "opacity",
+            transform: "translateZ(0)",
+            contain: "strict",
           }}
         />
       ))}

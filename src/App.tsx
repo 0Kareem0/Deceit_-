@@ -1,8 +1,8 @@
-import { Analytics } from "@vercel/analytics/react"
-import { Routes, Route, useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { useTranslation } from "react-i18next"
-import { ArrowUp } from "lucide-react"
+import { Analytics } from "@vercel/analytics/react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
+import { ArrowUp } from "lucide-react";
 import {
   BackgroundEffects,
   Header,
@@ -15,7 +15,20 @@ import {
   Footer,
   SEO,
 } from "./components";
-import { CharacterDetail, PrivacyPolicy, AppAds, NotFound } from "./components/pages";
+
+// Lazy-load secondary page routes to keep initial bundle size minimal
+const CharacterDetail = lazy(() => import("./components/pages/CharacterDetail").then(m => ({ default: m.CharacterDetail })));
+const PrivacyPolicy = lazy(() => import("./components/pages/PrivacyPolicy").then(m => ({ default: m.PrivacyPolicy })));
+const AppAds = lazy(() => import("./components/pages/AppAds").then(m => ({ default: m.AppAds })));
+const NotFound = lazy(() => import("./components/pages/NotFound").then(m => ({ default: m.NotFound })));
+
+function PageFallback() {
+  return (
+    <div className="min-h-screen bg-[#050308] text-[#EAE2D2] flex items-center justify-center">
+      <div className="w-8 h-8 rounded-full border-2 border-[#D4AF37] border-t-transparent animate-spin" />
+    </div>
+  );
+}
 
 export default function App() {
   const location = useLocation();
@@ -23,33 +36,31 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      
-      // Hide button when scrolled down less than 200px OR when close to the bottom of the page (within 150px)
-      if (scrolled > 200 && (maxScroll - scrolled > 150)) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          
+          if (scrolled > 200 && (maxScroll - scrolled > 150)) {
+            setShowScrollTop(true);
+          } else {
+            setShowScrollTop(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    // Multi-browser fallback
-    document.documentElement.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    document.body.scrollTo({
       top: 0,
       behavior: "smooth",
     });
@@ -89,26 +100,28 @@ export default function App() {
       <Analytics />
       <BackgroundEffects />
       <Header />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <SEO />
-            <Hero />
-            <About />
-            <Cycle />
-            <Interactions />
-            <Roles />
-            <Goals />
-            <Footer />
-          </>
-        } />
-        <Route path="/character/:characterName" element={<CharacterDetail />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/app-ads.txt" element={<AppAds />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <SEO />
+              <Hero />
+              <About />
+              <Cycle />
+              <Interactions />
+              <Roles />
+              <Goals />
+              <Footer />
+            </>
+          } />
+          <Route path="/character/:characterName" element={<CharacterDetail />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/app-ads.txt" element={<AppAds />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
 
-      {/* Premium Scroll to Top Button - Subtle, auto-hides near footer to prevent overlaps */}
+      {/* Premium Scroll to Top Button */}
       <button
         onClick={scrollToTop}
         className={`fixed bottom-6 right-6 rtl:left-6 rtl:right-auto sm:bottom-8 sm:right-8 sm:rtl:left-8 z-[9999] w-9.5 h-9.5 flex items-center justify-center rounded-full bg-[#050308]/80 backdrop-blur-md border border-[#C6A369]/30 text-[#C6A369]/70 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.6)] hover:border-[#C6A369] hover:text-[#EAD6A8] hover:shadow-[0_0_20px_rgba(198,163,105,0.5)] hover:-translate-y-1 active:scale-90 ${

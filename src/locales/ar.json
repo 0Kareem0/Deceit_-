@@ -5,8 +5,7 @@
     "comingSoon": "قريبًا",
     "iOS": "iOS",
     "android": "أندرويد",
-    "directDownload": "تحميل مباشر",
-    "googleDrive": "Google Drive",
+    "playStore": "Google Play",
     "back": "العودة",
     "backToCharacters": "العودة إلى الشخصيات"
   },
@@ -22,7 +21,7 @@
     "title": "ديسيت أونلاين",
     "subtitle": "لعبة الخداع والاستراتيجية النهائية",
     "description": "لعبة جماعية عربية تعتمد على الأدوار المخفية، الخداع، التحالفات والقدرات الخاصة. هل تستطيع معرفة من تثق به؟",
-    "downloadNote": "التحميل متاح حاليًا على أندرويد — نسخة iOS في الطريق",
+    "downloadNote": "متوفر الآن على متجر Google Play — نسخة iOS في الطريق",
     "features": {
       "hiddenRoles": "أدوار مخفية",
       "strategicGameplay": "لعب استراتيجي",

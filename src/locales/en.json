@@ -5,8 +5,7 @@
     "comingSoon": "Coming Soon",
     "iOS": "iOS",
     "android": "Android",
-    "directDownload": "Direct Download",
-    "googleDrive": "Google Drive",
+    "playStore": "Google Play",
     "back": "Back",
     "backToCharacters": "Back to Characters"
   },
@@ -22,7 +21,7 @@
     "title": "Deceit Online",
     "subtitle": "The Ultimate Game of Deception and Strategy",
     "description": "A multiplayer Arabic game based on hidden roles, deception, alliances, and special abilities. Can you figure out who to trust?",
-    "downloadNote": "Download currently available on Android — iOS version coming soon",
+    "downloadNote": "Available now on Google Play — iOS version coming soon",
     "features": {
       "hiddenRoles": "Hidden Roles",
       "strategicGameplay": "Strategic Gameplay",

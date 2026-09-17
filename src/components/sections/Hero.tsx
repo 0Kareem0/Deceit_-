@@ -30,7 +30,7 @@ export function Hero() {
       {/* Title Showcase (“ديسيت” / “Deceit”) - Metallic specular gold with depth */}
       <div className="relative my-3 group z-10">
         <h1
-          className="text-[22vw] sm:text-[9.5rem] lg:text-[12.5rem] leading-none font-black bg-gradient-to-b from-[#FFFFFF] via-[#F5DF9E] via-50% to-[#8B6914] bg-clip-text text-transparent drop-shadow-[0_0_90px_rgba(240,217,140,0.5)] transition-all duration-700 hover:scale-[1.02] select-none tracking-tight"
+          className="text-[22vw] sm:text-[9.5rem] lg:text-[12.5rem] leading-tight font-black bg-gradient-to-b from-[#FFFFFF] via-[#F5DF9E] to-[#8B6914] bg-clip-text text-transparent drop-shadow-[0_0_90px_rgba(240,217,140,0.5)] transition-all duration-700 hover:scale-[1.02] select-none tracking-tight py-2"
           style={{
             fontFamily: isArabic ? "'Scheherazade New', serif" : "'Cinzel', serif",
             animation: "floaty 6s ease-in-out infinite",
@@ -39,9 +39,6 @@ export function Hero() {
         >
           {t('nav.deceit')}
         </h1>
-
-        {/* Specular Metallic Hairline Underglow Accent */}
-        <div className="w-40 sm:w-80 h-1 mx-auto bg-gradient-to-r from-transparent via-[#F0D78C] to-transparent rounded-full shadow-[0_0_25px_#F0D78C] opacity-90" />
       </div>
 
       {/* Subtitle Description */}
